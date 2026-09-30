@@ -1,0 +1,48 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\input{macros}
+\hypersetup{pdftitle={Local Descriptions of SAT Truth Tables},
+pdfauthor={Matias Donoso Quiroga}}
+\title{Local Descriptions of SAT Truth Tables:\\
+A Framework for Time--Description Trade-offs}
+\author{Matías Donoso Quiroga}
+\date{Working draft v0.1.0 --- September 29, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We formulate a research framework for representing SAT truth tables by short
+descriptions that answer individual queries within a specified time bound.
+For an efficiently universal deterministic evaluator, polynomial description
+length and polynomial local evaluation time characterize polynomial advice,
+and hence polynomial-size Boolean circuits. We give self-contained expository
+proofs of this characterization, the corresponding lower-bound quantifiers,
+and an elementary residual-function bound for ordered decision diagrams.
+A unit-clause satisfiability example has exponential width under a grouped
+input order and constant width under an interleaved order, illustrating why
+representation restrictions matter. Deterministic finite experiments reproduce
+the latter example. We distinguish these established observations from the
+open objective of excluding all polynomial-size, polynomial-time local
+descriptions of SAT. This draft claims neither a new general circuit lower
+bound nor a resolution of \(P\) versus \(NP\).
+\end{abstract}
+\noindent\textbf{Keywords:} SAT; local decoding; nonuniform computation;
+Kolmogorov complexity; circuit complexity; ordered decision diagrams.
+\input{sections/01-scope}
+\input{sections/02-model}
+\input{sections/03-equivalence}
+\input{sections/04-obstructions}
+\input{sections/05-restricted}
+\input{sections/06-research}
+\input{sections/07-reproducibility}
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

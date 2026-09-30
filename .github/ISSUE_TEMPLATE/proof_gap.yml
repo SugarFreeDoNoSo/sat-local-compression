@@ -1,0 +1,20 @@
+name: Proof gap or counterexample
+description: Identify a specific statement or implication requiring correction.
+title: "[Proof review] "
+body:
+  - type: input
+    id: claim
+    attributes:
+      label: Claim ID and source location
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: Exact gap or counterexample
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Dependent claims and proposed repair

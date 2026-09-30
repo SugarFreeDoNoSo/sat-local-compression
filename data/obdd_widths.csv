@@ -1,0 +1,8 @@
+m,input_bits,grouped_cut_width,grouped_max_width,interleaved_max_width
+1,2,2,2,2
+2,4,4,4,3
+3,6,8,8,3
+4,8,16,16,3
+5,10,32,32,3
+6,12,64,64,3
+7,14,128,128,3

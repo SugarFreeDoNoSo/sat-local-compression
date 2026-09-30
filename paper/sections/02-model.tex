@@ -1,0 +1,72 @@
+\section{A local-description model}
+\subsection{Inputs, tables, and evaluators}
+Fix a conventional explicit binary encoding of Boolean formulas.
+Let \(\SAT(x)=1\) if \(x\) is a valid encoding of a satisfiable formula,
+and let \(\SAT(x)=0\) otherwise. For \(n\geq1\), the string
+\[
+ T_n=(\SAT(x))_{x\in\bits^n}
+\]
+lists answers in lexicographic order. Its length is \(N=2^n\).
+We use \(T_n[x]\) for the entry indexed by the \(n\)-bit string \(x\).
+All polynomial query-time bounds refer to \(n\), not to \(N\).
+
+Fix a deterministic, efficiently universal multitape evaluator \(U\) with
+read-only inputs \(d,x\), ordinary work tapes, and a one-bit output.
+Efficient universality means that a fixed algorithm with auxiliary data can
+be encoded with constant program overhead and simulated with polynomial
+overhead in its time and input lengths. All interpretation and access costs
+are charged; \(U\) has no SAT oracle or uncharged computational primitive.
+The simulation polynomial may depend on the simulated algorithm.
+
+\begin{definition}[Local description length]\label{def:local}
+For a total time bound \(t:\mathbb N\to\mathbb N\), set
+\[
+ \loc_t(T_n)=\min\left\{
+ |d|:\ \forall x\in\bits^n,\quad
+ U(d,x)=T_n[x]\ \text{and}\ \timeU(d,x)\leq t(n)
+ \right\}.
+\]
+The minimum of an empty set is \(+\infty\).
+The same description must answer every query of length \(n\).
+\end{definition}
+
+The description \(d_n\) may depend on \(n\). There is no requirement that
+\(n\mapsto d_n\) be computable or efficiently constructible.
+The description length \(|d_n|\) is not a definition of work-space usage.
+A fresh description for each individual query is not allowed: it could
+simply supply that query's answer and erase the computational question.
+
+Local access is closely related to the established resource-bounded
+Kolmogorov measure \(\mathrm{KT}\) and to circuit size
+\cite{AllenderEtAl2006}. We retain two parameters rather than assert
+an exact numerical identity with a particular convention for
+\(\mathrm{KT}\). In particular, \(\mathrm{KT}\), Levin's \(\mathrm{Kt}\),
+and the full-output measure \(K^t\) are different definitions.
+
+\subsection{What unrestricted compression already gives}
+Let \(K\) denote prefix-free Kolmogorov complexity for a fixed optimal machine.
+\begin{proposition}[Short unrestricted descriptions \claimid{P01}]
+\label{prop:short}
+For the fixed SAT encoding,
+\[
+ K(T_n)\leq K(n)+O(1)=O(\log(n+2)).
+\]
+There is also a constant-length local description answering \(T_n[x]\)
+for every \(n\), if no query-time bound is imposed.
+\end{proposition}
+\begin{proof}
+A fixed procedure, supplied with \(n\), enumerates \(\bits^n\), rejects
+malformed encodings, decides each remaining SAT instance by exhaustive
+search, and writes the resulting table. A shortest self-delimiting
+program for \(n\), followed by a fixed interpreter for this procedure,
+proves the first inequality. The usual self-delimiting encoding of
+an integer gives the asymptotic bound.
+For local access, a fixed exhaustive-search SAT program takes \(x\)
+directly as input. Its code does not depend on \(n\).
+\end{proof}
+
+This proposition holds whether or not \(\PP=\NP\). It is an
+upper bound on description length, not an efficient decoding guarantee.
+It also holds with SAT replaced by any fixed decidable language.
+The unrestricted table complexity includes a description of the length;
+the local evaluator can obtain the query length from its input.

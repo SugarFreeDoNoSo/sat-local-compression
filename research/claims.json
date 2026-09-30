@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "review_status": "Initial expository proofs; independent human review pending.",
+  "claims": [
+    {
+      "id": "P01", "label": "prop:short", "status": "expository-proved",
+      "statement": "SAT truth tables have K(T_n) <= K(n) + O(1), and unrestricted local descriptions can have constant length.",
+      "scope": "Fixed decidable SAT encoding; no efficient decoding claim.",
+      "depends_on": [], "sources": []
+    },
+    {
+      "id": "T01", "label": "thm:advice", "status": "expository-proved",
+      "statement": "Polynomial local description length and polynomial query time characterize SAT in P/poly.",
+      "scope": "Fixed efficiently universal deterministic evaluator; a description may depend only on input length.",
+      "depends_on": [], "sources": ["AroraBarak2009"]
+    },
+    {
+      "id": "C01", "label": "cor:target", "status": "expository-proved",
+      "statement": "The quantified infinitely-often local lower bound is equivalent to SAT not in P/poly and implies P != NP.",
+      "scope": "All fixed polynomial description/time exponents; the converse from P != NP is not claimed.",
+      "depends_on": ["T01"], "sources": []
+    },
+    {
+      "id": "L01", "label": "lem:count", "status": "expository-proved",
+      "statement": "At most 2^(s+1)-1 tables have local descriptions of at most s bits for a fixed time bound.",
+      "scope": "Counting all Boolean tables, not an explicit SAT lower bound.",
+      "depends_on": [], "sources": []
+    },
+    {
+      "id": "P02", "label": "prop:boundary", "status": "expository-proved",
+      "statement": "The SAT restriction recurrence plus correct variable-free boundaries determines SAT.",
+      "scope": "Semantic formula functions; no small-circuit impossibility follows merely from uniqueness.",
+      "depends_on": [], "sources": []
+    },
+    {
+      "id": "L02", "label": "lem:residual", "status": "expository-proved",
+      "statement": "Distinct residual functions characterize minimum width at a cut of a layered ordered diagram.",
+      "scope": "Deterministic diagrams with fixed order and one read of each input bit.",
+      "depends_on": [], "sources": ["Bryant1986"]
+    },
+    {
+      "id": "P03", "label": "prop:grouped", "status": "expository-proved",
+      "statement": "The grouped-order disjointness diagram has width 2^m at its midpoint.",
+      "scope": "Incidence-encoded unit-clause SAT; not arbitrary formula encodings or circuits.",
+      "depends_on": ["L02"], "sources": []
+    },
+    {
+      "id": "P04", "label": "prop:interleaved", "status": "expository-proved",
+      "statement": "The interleaved-order diagram has width at most three and linear node count.",
+      "scope": "Same incidence function; demonstrates representation sensitivity.",
+      "depends_on": ["L02"], "sources": []
+    },
+    {
+      "id": "Q01", "label": "conj:main", "status": "open",
+      "statement": "Every pair of polynomial resource bounds fails to describe SAT locally at infinitely many lengths.",
+      "scope": "Restatement of the established open SAT not in P/poly target; no novelty claimed.",
+      "depends_on": ["C01"], "sources": []
+    },
+    {
+      "id": "R01", "status": "conditional-literature",
+      "statement": "Specialized natural-property characterization using checked SAT solvers.",
+      "scope": "Chapman-Williams Theorem 1.1; retain the solver restriction.",
+      "depends_on": [], "sources": ["ChapmanWilliams2015"]
+    },
+    {
+      "id": "R02", "status": "conditional-literature",
+      "statement": "The specified Gap-MCSP circuit lower bounds magnify to NP not in P/poly.",
+      "scope": "Oliveira-Pich-Santhanam Theorem 1.4; full-table length, exact promise thresholds, and beta quantifiers.",
+      "depends_on": [], "sources": ["OliveiraPichSanthanam2021"]
+    },
+    {
+      "id": "R03", "status": "conditional-literature",
+      "statement": "The specified conditional time-bounded chain rule characterizes P = NP under an additional hardness hypothesis.",
+      "scope": "Kabanets-Kolokolova revision 1; NP-hardness assumption is retained.",
+      "depends_on": [], "sources": ["KabanetsKolokolova2026"]
+    },
+    {
+      "id": "E01", "label": "tab:widths", "status": "finite-experiment",
+      "statement": "Exhaustive residual counts for 1 <= m <= 7 illustrate P03 and P04.",
+      "scope": "Exact finite data; no extrapolation as proof.",
+      "depends_on": ["P03", "P04"], "sources": []
+    }
+  ]
+}

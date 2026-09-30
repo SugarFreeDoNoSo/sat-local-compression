@@ -1,0 +1,32 @@
+[
+  {
+    "id": "W01",
+    "title": "Audit the local evaluator model and advice equivalence",
+    "body": "Review Definition 2.1 and claim T01.\n\nAcceptance criteria:\n- [ ] Check efficient universality and charged access costs.\n- [ ] Check advice depends only on input length.\n- [ ] Verify headers, constants, and finite exceptions.\n- [ ] Record an actual independent human review.\n\nReferences: paper/sections/02-model.tex; paper/sections/03-equivalence.tex."
+  },
+  {
+    "id": "W02",
+    "title": "Compare local description length with established KT conventions",
+    "body": "Derive explicit simulations in both directions without conflating KT, Kt, and K^t.\n\nAcceptance criteria:\n- [ ] Specify machine and access models.\n- [ ] Track input length versus table length.\n- [ ] Account for input nodes and description headers in circuit size.\n- [ ] Cite precise primary statements and label unresolved directions.\n\nStart with docs/literature.md."
+  },
+  {
+    "id": "W03",
+    "title": "Investigate an order-robust lower bound in a specified restricted model",
+    "body": "The grouped-order example is easy under interleaving. Select a model and an explicit family for which a proposed bound survives the allowed representation choices.\n\nAcceptance criteria:\n- [ ] Define allowed orders, encodings, and sharing.\n- [ ] Give a complete proof or a precise counterexample.\n- [ ] Separate the claim from general SAT circuit lower bounds.\n- [ ] Add finite experiments only where informative."
+  },
+  {
+    "id": "W04",
+    "title": "Audit a possible transfer to the precise Gap-MCSP magnification theorem",
+    "body": "Determine whether a concrete local-description result can be connected to Oliveira-Pich-Santhanam Theorem 1.4.\n\nAcceptance criteria:\n- [ ] State reduction direction and source/target promises.\n- [ ] Track N = 2^n and all resource overhead.\n- [ ] Retain both thresholds and all parameter quantifiers.\n- [ ] Document the missing reduction if none is established.\n\nA restricted-model bound alone is insufficient."
+  },
+  {
+    "id": "W05",
+    "title": "Formalize the residual-function width lemma in a proof assistant",
+    "body": "Choose a proof assistant and formalize claim L02 before attempting a broader complexity development.\n\nAcceptance criteria:\n- [ ] Define layered deterministic diagrams and residual functions.\n- [ ] Prove distinct residuals require distinct states.\n- [ ] Prove the residual construction attains each width.\n- [ ] Match the formal theorem to manuscript conventions.\n- [ ] Add a pinned and reproducible verification command."
+  },
+  {
+    "id": "W06",
+    "title": "Define publication scope, independent review, and licenses",
+    "body": "Prepare the decisions in PUBLICATION.md.\n\nAcceptance criteria:\n- [ ] Identify the article contribution beyond the expository foundation.\n- [ ] Complete a novelty and bibliography audit.\n- [ ] Obtain independent mathematical review.\n- [ ] Confirm authorship and AI-assistance disclosure.\n- [ ] Select manuscript and code licenses.\n- [ ] Select a venue before applying venue-specific formatting."
+  }
+]

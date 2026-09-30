@@ -1,0 +1,56 @@
+name: Research checks and manuscript
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: research-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Research and finite experiments
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Record Python version
+        run: python3 --version
+      - name: Check metadata, finite examples, and generated data
+        run: make check
+
+  manuscript:
+    name: Build manuscript
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install the TeX toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends latexmk texlive-latex-extra texlive-fonts-recommended lmodern
+      - name: Build and validate the manuscript
+        run: |
+          make pdf
+          python3 scripts/check_tex_log.py
+      - name: Upload the PDF and build logs
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: manuscript-${{ github.sha }}
+          path: |
+            build/paper/main.pdf
+            build/paper/main.log
+            build/paper/build.log
+          if-no-files-found: error
+          retention-days: 30

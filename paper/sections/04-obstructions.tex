@@ -1,0 +1,52 @@
+\section{What counting and structural identities do not establish}
+\begin{lemma}[Counting local descriptions \claimid{L01}]
+\label{lem:count}
+Fix \(n,t\) and an integer \(s\geq0\). At most \(2^{s+1}-1\)
+truth tables on \(n\) input bits have \(\loc_t(T)\leq s\).
+For a uniformly random such table,
+\[
+ \Pr[\loc_t(T)\leq s]\leq\min\{1,2^{s+1-2^n}\}.
+\]
+\end{lemma}
+\begin{proof}
+There are \(\sum_{j=0}^s2^j=2^{s+1}-1\) descriptions of length at
+most \(s\). A deterministic description satisfying the time bound
+on every query determines at most one table. Divide the bound by
+the total \(2^{2^n}\) possible tables.
+\end{proof}
+This statement identifies most tables as hard, not SAT's particular
+table. Proposition~\ref{prop:short} explains why raw information content
+cannot identify the desired computational obstruction. Shannon entropy
+also requires a specified distribution; the size of one table is not
+its computational hardness.
+
+\begin{proposition}[Self-reduction requires boundary conditions \claimid{P02}]
+\label{prop:boundary}
+Let \(P\) be Boolean-valued on formulas, allowing Boolean constants.
+Suppose for every variable \(z\) occurring in \(F\),
+\[
+ P(F)=P(F[z=0])\lor P(F[z=1]).
+\]
+If \(P\) equals direct evaluation on variable-free formulas, then
+\(P(F)=\SAT(F)\) for every \(F\). Without that boundary condition,
+both constant functions satisfy the recurrence.
+\end{proposition}
+\begin{proof}
+Induct on the number of distinct variables. The boundary condition
+proves the base case. Substitution removes \(z\), so induction
+identifies both terms on the right as satisfiability answers; their
+disjunction is satisfiability of \(F\). For a constant function with
+value \(c\), the recurrence is \(c=c\lor c\).
+\end{proof}
+Uniqueness under identities and boundary conditions does not bound
+circuit size. Substituted formulas also have different encoding
+lengths: a circuit-family argument must manage these lengths or
+supply explicit satisfiability-preserving padding.
+Counting identities as independent gates is unjustified because
+circuits can share subcomputations.
+
+A deterministic halting computation using space \(s(n)\geq\log n\)
+has exponentially many possible configurations in \(s(n)\), for a
+fixed standard machine. Counting them gives an exponential
+\emph{upper} bound on time. It does not force a computation to visit
+all configurations and is not a time lower bound.

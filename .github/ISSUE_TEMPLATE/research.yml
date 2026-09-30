@@ -1,0 +1,28 @@
+name: Research question or proposed statement
+description: Define one mathematical objective with explicit assumptions.
+title: "[Research] "
+body:
+  - type: textarea
+    id: statement
+    attributes:
+      label: Precise question or statement
+      description: Include input sizes and quantifiers.
+    validations:
+      required: true
+  - type: textarea
+    id: model
+    attributes:
+      label: Model and assumptions
+      description: Specify encoding, uniformity, access costs, and allowed resources.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Current evidence and references
+      description: Separate proofs, conjectures, and finite observations.
+  - type: textarea
+    id: completion
+    attributes:
+      label: Completion criteria
+      description: A proof, a counterexample, or a documented missing implication can be useful.

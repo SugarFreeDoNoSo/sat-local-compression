@@ -1,0 +1,55 @@
+\section{Related directions and the open target}
+Connections between resource-bounded descriptions and lower bounds
+must retain their models, time scales, promises, and hypotheses.
+
+Chapman and Williams \cite{ChapmanWilliams2015} characterize
+\(\NP\nsubseteq\Ppoly\) through natural properties designed against
+SAT-solving circuits with specified checking behavior.
+This concerns a specialized class of solvers, not arbitrary
+properties separating SAT from arbitrary circuits. It is a
+literature direction, not a lower-bound method supplied here.
+
+Oliveira, Pich, and Santhanam \cite{OliveiraPichSanthanam2021},
+Theorem~1.4, prove the following hardness-magnification implication.
+There is a universal \(c\geq1\) such that, if some \(\varepsilon>0\)
+satisfies, for every sufficiently small constant \(\beta>0\),
+\[
+ \mathsf{Gap\text{-}MCSP}
+ \left[\frac{N^\beta}{c\log_2 N},N^\beta\right]
+ \notin\SIZE[N^{1+\varepsilon}],
+\]
+then \(\NP\nsubseteq\Ppoly\).
+Here \(N\) is the length of the entire input truth table. The
+promise distinguishes circuit complexity at most the first threshold
+from complexity at least the second.
+A restricted diagram bound for \(T_n\) does not satisfy this
+antecedent. An application requires a separate resource-preserving
+reduction.
+
+Kabanets and Kolokolova \cite{KabanetsKolokolova2026} characterize
+specified chain rules for time-bounded Kolmogorov complexity.
+The March 13, 2026 revision states a direct equivalence between a
+conditional chain rule with sublinear error and \(\PP=\NP\),
+\emph{assuming} NP-hardness of the stated
+\(\mathsf{GapMcK}^{t}\mathsf P\) problem.
+It also gives unconditional characterizations involving other
+complexity assumptions. We neither remove the extra hypothesis nor
+identify their full-output conditional measure with local access.
+
+\begin{conjecture}[Research target \claimid{Q01}]
+\label{conj:main}
+For every \(a,b\in\mathbb N_{>0}\), there are infinitely many \(n\)
+such that \(\loc_{n^b}(T_n)>n^a\).
+\end{conjecture}
+By Corollary~\ref{cor:target}, this is the established open target
+\(\SAT\notin\Ppoly\) in local-description language, not a new
+conjecture or a proof advance.
+
+An intermediate result must name its restricted model and identify
+the changes of representation it tolerates. Candidate directions
+include order-independent residual bounds for specified diagram
+classes, parameter-checked reductions to a meta-complexity promise
+problem, and proof-assistant formalization of the equivalence.
+These tasks remain open in this project.
+A bound \(|d|t^\alpha\geq n^c\) for fixed \(c\), on its own, still
+permits polynomial description length and polynomial time.

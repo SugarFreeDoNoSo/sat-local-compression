@@ -1,0 +1,81 @@
+\section{A restricted model: ordered decision diagrams}
+Ordered binary decision diagrams are classical representations
+\cite{Bryant1986}. We use deterministic \emph{layered} diagrams:
+each layer reads the next bit in a fixed order, every path reads
+all bits, and the final state supplies the answer. Equivalent
+residual computations may merge. This convention avoids ambiguity
+about skipped levels and early terminals.
+
+For \(a,b\in\bits^m\), define
+\[
+ g_m(a,b)=\bigwedge_{i=1}^m\neg(a_i\land b_i).
+\]
+This is the satisfiability function of the unit-clause formula
+\[
+ F_{a,b}=
+ \left(\bigwedge_{i:a_i=1}z_i\right)\land
+ \left(\bigwedge_{i:b_i=1}\neg z_i\right).
+\]
+The experiment uses the incidence encoding \((a,b)\), not the
+general formula encoding of \(T_n\). Conversion to conventional
+syntax does not by itself transfer an order-dependent bound to
+arbitrary encodings or circuits.
+
+\begin{lemma}[Residual-function width bound \claimid{L02}]
+\label{lem:residual}
+At a fixed input cut, let \(R\) be the number of distinct functions
+of the unread suffix induced by assignments to the read prefix.
+Every correct deterministic layered diagram has at least \(R\)
+reachable states there. A diagram whose states are residual
+functions attains the bound.
+\end{lemma}
+\begin{proof}
+If two prefixes inducing different residual functions reached the
+same state, a common suffix would require different answers. A
+deterministic diagram cannot produce both. For attainability, take
+one state for every residual function at every layer. Each edge
+restricts the next variable, defining consistent transitions and
+the correct terminal value.
+\end{proof}
+
+\begin{proposition}[Grouped-order lower bound \claimid{P03}]
+\label{prop:grouped}
+For order \(a_1,\ldots,a_m,b_1,\ldots,b_m\), the minimum width
+after reading \(a\) is \(2^m\).
+\end{proposition}
+\begin{proof}
+For distinct \(a,a'\), choose \(i\) with \(a_i\ne a'_i\).
+Let \(e_i\) have only its \(i\)-th bit set. Then
+\(g_m(a,e_i)=1-a_i\) and \(g_m(a',e_i)=1-a'_i\).
+All \(2^m\) prefixes induce different residual functions.
+Apply Lemma~\ref{lem:residual}.
+\end{proof}
+
+\begin{proposition}[Interleaved-order upper bound \claimid{P04}]
+\label{prop:interleaved}
+For order \(a_1,b_1,\ldots,a_m,b_m\), every layer needs at most
+three states. Thus a layered diagram has \(O(m)\) nodes.
+\end{proposition}
+\begin{proof}
+After a completed pair, a prefix either already contains a conflict
+or leaves the same disjointness function on the remaining pairs.
+There are at most two residual functions. After the first bit of
+the next pair, the possibilities are a previous conflict, an
+unrestricted next \(b_i\), or the requirement \(b_i=0\).
+There are at most three residual functions.
+Apply Lemma~\ref{lem:residual} to the \(2m+1\) layers.
+\end{proof}
+
+The function also has a linear-size general circuit. The exponential
+grouped-order bound concerns a restricted representation. An
+explicit diagram needs many nodes in that order; this says nothing
+comparable about the length of a program generating the diagram.
+
+\begin{table}[htbp]
+\centering
+\input{../data/obdd_widths.tex}
+\caption{Exhaustive residual-function counts. Grouped cut is the width
+after the first \(m\) bits; interleaved maximum includes all layers,
+including terminals. Finite observations illustrate the proofs.}
+\label{tab:widths}
+\end{table}

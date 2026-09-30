@@ -1,0 +1,65 @@
+\section{Polynomial descriptions characterize polynomial advice}
+The class \(\Ppoly\) consists of languages decidable in polynomial time
+with advice of polynomial length depending only on input length.
+Equivalently, these are languages with polynomial-size Boolean circuit
+families: hardwire advice into computation circuits, or evaluate an
+encoded circuit supplied as advice \cite{AroraBarak2009}.
+
+\begin{theorem}[Advice characterization \claimid{T01}]
+\label{thm:advice}
+Under the evaluator convention of Definition~\ref{def:local},
+\[
+ \SAT\in\Ppoly
+ \quad\Longleftrightarrow\quad
+ \exists a,b\in\mathbb N_{>0}\ \exists n_0\
+ \forall n\geq n_0:\quad \loc_{n^b}(T_n)\leq n^a.
+\]
+\end{theorem}
+\begin{proof}
+Suppose first that the right-hand side holds. For each \(n\geq n_0\),
+choose a witnessing description \(d_n\). Use \(d_n\) as advice and run
+the fixed evaluator \(U(d_n,x)\). Both advice length and time are
+polynomial in \(n\). The finitely many smaller input lengths can be
+handled by a finite table in the deciding machine. Thus
+\(\SAT\in\Ppoly\).
+
+Conversely, suppose a fixed deterministic machine \(M\) decides
+SAT using advice \(a_n\) of length at most \(q(n)\) in time at most
+\(p(n)\), for polynomials \(p,q\). Encode \(M\), a self-delimiting
+header, and \(a_n\) in \(d_n\). Its length is polynomial in \(n\).
+Efficient universality supplies a polynomial time bound for
+\(U(d_n,x)\). Increasing integer exponents and discarding finitely
+many small \(n\) absorbs multiplicative constants, headers, and
+simulation overhead.
+\end{proof}
+
+This is a polynomial-resource equivalence, not equality of program
+length and gate count. The proof applies equally to any language.
+
+\begin{corollary}[The exact lower-bound target \claimid{C01}]
+\label{cor:target}
+The following assertions are equivalent:
+\begin{enumerate}[label=(\roman*)]
+ \item \(\SAT\notin\Ppoly\).
+ \item For every \(a,b\in\mathbb N_{>0}\) and every \(n_0\), there is
+ \(n\geq n_0\) such that \(\loc_{n^b}(T_n)>n^a\).
+\end{enumerate}
+Either assertion implies \(\PP\ne\NP\).
+\end{corollary}
+\begin{proof}
+Negating the quantified right-hand side of Theorem~\ref{thm:advice}
+gives (ii). If \(\PP=\NP\), SAT has a polynomial-time algorithm and
+therefore polynomial-size circuits, contradicting (i).
+\end{proof}
+
+Assertion (ii) quantifies over infinitely many input lengths, rather
+than all sufficiently large lengths. An eventual lower bound would
+also suffice but is not the logical negation above.
+The converse implication from \(\PP\ne\NP\) to (i) is not established.
+The target excludes nonuniform advice as well as uniform algorithms.
+
+A single fixed description correctly answering all input lengths in
+polynomial time is an ordinary polynomial-time SAT algorithm.
+A new polynomial-size description at each length is extra freedom.
+Ruling out only maximally compressed or logarithmic-length descriptions
+would leave open longer polynomial descriptions with faster evaluation.

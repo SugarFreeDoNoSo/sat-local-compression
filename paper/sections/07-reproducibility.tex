@@ -1,0 +1,31 @@
+\section{Reproducibility and review}
+The repository supplies dependency-free Python experiments, unit
+tests, LaTeX sources, references, a claim register, and CI configuration.
+The experiment constructs the truth table of \(g_m\), enumerates every
+prefix and suffix in each selected order, and counts distinct residual
+truth tables. The published range is \(1\leq m\leq7\).
+All arithmetic is exact; there are no random seeds or statistical
+estimates.
+
+Tests compare the incidence predicate with an independent exhaustive
+unit-clause SAT verifier, check the grouped and interleaved width
+predictions on small inputs, and test a separate parity example.
+The manuscript table is regenerated and checked for drift.
+These checks validate finite artifacts, not the general mathematical
+proofs.
+
+The command \texttt{make check} runs code and research-metadata checks;
+\texttt{make pdf} builds the paper with \texttt{latexmk};
+\texttt{make verify} performs both and checks the LaTeX log.
+The README lists the toolchain.
+Independent review must inspect the evaluator model, uniformity
+quantifiers, finite exceptions, and representation restrictions.
+Journal or preprint submission remains an author-controlled future step.
+
+\paragraph{Authorship and assistance.}
+The research question was developed by Matías Donoso Quiroga.
+OpenAI ChatGPT/Codex assisted in preparing this initial exposition,
+code, and repository structure. Independent human mathematical
+review is pending. AI systems are not listed as authors.
+No institutional affiliation, publication venue, or endorsement
+is asserted.

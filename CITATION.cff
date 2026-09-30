@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite this research artifact when using its manuscript or experiments."
+type: software
+title: "Local Descriptions of SAT Truth Tables: A Framework for Time-Description Trade-offs"
+authors:
+  - family-names: "Donoso Quiroga"
+    given-names: "Matías"
+version: 0.1.0
+repository-code: "https://github.com/SugarFreeDoNoSo/sat-local-compression"
+abstract: "Living mathematical manuscript and reproducible experiments on local descriptions, polynomial advice, and representation-sensitive lower bounds."
+keywords:
+  - computational complexity
+  - SAT
+  - circuit complexity
+  - Kolmogorov complexity
+  - local decoding
