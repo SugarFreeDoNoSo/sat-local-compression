@@ -54,3 +54,31 @@ jobs:
             build/paper/build.log
           if-no-files-found: error
           retention-days: 30
+
+  release:
+    name: Publish manuscript PDF
+    needs: [checks, manuscript]
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - name: Download the validated PDF and publish a Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh run download "$GITHUB_RUN_ID" --name "manuscript-$GITHUB_SHA" --dir build/paper
+          test -s build/paper/main.pdf
+          release_tag="manuscript-$GITHUB_SHA"
+          if gh release view "$release_tag" > /dev/null 2>&1; then
+            gh release upload "$release_tag" build/paper/main.pdf --clobber
+          else
+            gh release create "$release_tag" build/paper/main.pdf \
+              --target "$GITHUB_SHA" \
+              --title "Manuscript ${GITHUB_SHA:0:7}" \
+              --notes "Automated manuscript build for commit $GITHUB_SHA. Working draft; independent mathematical review is pending." \
+              --latest
+          fi

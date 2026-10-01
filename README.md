@@ -55,9 +55,13 @@ make verify      # checks + paper build + LaTeX warning gate
 make experiments # regenerate the committed finite tables
 ```
 
-GitHub Actions is configured to run the checks and build a downloadable PDF
-artifact on pushes and pull requests. A successful local build is not evidence
-that remote CI has run.
+GitHub Actions runs the checks and builds a downloadable PDF artifact on
+pushes and pull requests. After both jobs succeed on `main`, it also publishes
+`main.pdf` in a [GitHub Release](https://github.com/SugarFreeDoNoSo/sat-local-compression/releases)
+with a `manuscript-<commit SHA>` tag. Manual runs on `main` publish a Release
+as well; rerunning the same commit replaces its PDF asset. Release assets are
+not subject to the 30-day Actions artifact retention period.
+A successful local build is not evidence that remote CI has run.
 
 ## Layout
 
