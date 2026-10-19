@@ -12,6 +12,8 @@ Independent mathematical review is pending.
 - [Manuscript source](paper/main.tex) and [paper guide](paper/README.md).
 - [Claim register](research/claims.json): status, dependencies, and scope.
 - [Research plan](docs/research-plan.md) and [backlog](research/backlog.json).
+- [Execution waves](docs/execution-waves.md), [detailed roadmap](docs/roadmap.md),
+  and [live tracking issue](https://github.com/SugarFreeDoNoSo/sat-local-compression/issues/9).
 - [Literature notes](docs/literature.md).
 - [Contribution rules](CONTRIBUTING.md) and [review checklist](docs/review-checklist.md).
 - [Publication plan](PUBLICATION.md) and [citation metadata](CITATION.cff).
