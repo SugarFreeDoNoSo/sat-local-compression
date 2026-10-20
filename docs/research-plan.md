@@ -1,5 +1,9 @@
 # Research plan
 
+The [detailed development roadmap](roadmap.md) expands this overview into
+work packages, dependencies, review gates, exploration budgets, and a suggested
+first six-week cycle. It is a plan, not evidence that backlog items are complete.
+
 ## Foundations
 
 The initial draft gives definitions, expository proofs, and finite examples.
