@@ -1,0 +1,118 @@
+\subsection{An explicit family robust to all variable orders}
+Order robustness is possible in restricted representations without yielding
+general circuit lower bounds. Graph-CNF arguments of this kind are established
+in knowledge compilation; Bova and Slivovsky
+\cite{BovaSlivovsky2017}, Section~4, give substantially stronger
+exponential-size examples using expanders. We give an elementary grid example
+with a self-contained bound. No novelty is claimed.
+
+Let \(G=(V,E)\) be a fixed finite simple undirected graph with \(m=|V|\).
+For a selector string \(y\in\bits^V\), define
+\[
+ g_G(y)=\bigwedge_{\{u,v\}\in E}\neg(y_u\land y_v).
+\]
+This is also the satisfiability function, in the selector input \(y\), of
+\[
+ \Psi_{G,y}(z)=
+ \left(\bigwedge_{\{u,v\}\in E}(\neg z_u\lor\neg z_v)\right)
+ \land\left(\bigwedge_{v:y_v=1}z_v\right).
+\]
+Indeed, adjacent selected vertices force an unsatisfied negative clause.
+If there are no such vertices, the witness \(z=y\) satisfies every clause.
+Thus \(\Psi_{G,y}\) is satisfiable exactly when \(g_G(y)=1\).
+The graph and its negative clauses are fixed for this input family; the
+\(m\) input bits encode the presence of positive unit clauses.
+
+We retain the deterministic layered model of Lemma~\ref{lem:residual}:
+all input bits are read once, in a fixed arbitrary order, with unrestricted
+merging of equivalent computations within layers. The measured resource is
+the maximum number of reachable states in a layer.
+
+\begin{lemma}[Crossing induced matchings \claimid{L03}]
+\label{lem:crossing-matching}
+At a cut with read set \(S\subseteq V\), suppose that \(q\) edges
+\(\{a_i,b_i\}\), with \(a_i\in S\) and \(b_i\notin S\), form an
+induced matching in the \emph{whole graph} \(G\). Every correct layered
+diagram for \(g_G\) has at least \(2^q\) reachable states at that cut.
+If \(G\) has maximum degree at most \(\Delta\geq1\) and the cut has
+\(c\) crossing edges, its width is at least
+\(2^{c/(2\Delta^2)}\).
+\end{lemma}
+\begin{proof}
+For each \(A\subseteq\{1,\ldots,q\}\), assign 1 to the read vertices
+\(a_i\) with \(i\in A\), and 0 to all other read vertices.
+These selected read vertices are independent because the matching is induced
+in \(G\). For distinct \(A,A'\), choose \(j\) in their symmetric
+difference and set the unread suffix to 1 only at \(b_j\).
+There are no edges between endpoints of different matching edges, so the
+resulting answer is 0 exactly when \(j\in A\), and likewise for \(A'\).
+The \(2^q\) read assignments therefore induce distinct residual functions.
+Lemma~\ref{lem:residual} gives the first assertion.
+
+For the second assertion, greedily select a remaining crossing edge
+\(\{u,v\}\) and delete every remaining crossing edge incident to
+\(N_G(u)\cup N_G(v)\), where these are open neighborhoods in the whole
+graph. Both \(u\) and \(v\) belong to that union because \(uv\) is an
+edge. The union contains at most \(2\Delta\) vertices, so at most
+\(2\Delta^2\) crossing edges are deleted at each selection.
+No endpoint of a later selected edge is adjacent to an earlier endpoint;
+the selected edges form an induced matching in \(G\), including the absence
+of unwanted edges on either side of the cut. When all \(c\) crossing edges
+have been deleted, the number selected is at least \(c/(2\Delta^2)\).
+Apply the first assertion.
+\end{proof}
+
+\begin{proposition}[All-order grid lower bound \claimid{P05}]
+\label{prop:grid-orders}
+Let \(r\geq2\) be even and let \(G_r\) be the \(r\)-by-\(r\) grid
+with horizontal and vertical edges between neighboring vertices.
+For every ordering of its \(m=r^2\) selector bits, every correct layered
+diagram for \(g_{G_r}\) has width at least \(2^{r/64}\) after the first
+\(m/2\) bits. In particular, its maximum width is
+\(2^{\Omega(\sqrt m)}\) for every ordering.
+\end{proposition}
+\begin{proof}
+Let \(S\) be any set of \(r^2/2\) grid vertices. Call a row mixed if
+it contains vertices both in \(S\) and outside \(S\).
+If at least \(r/2\) rows are mixed, each contains a horizontal crossing
+edge, giving at least \(r/2\) crossing edges in total.
+Otherwise, fewer than \(r/2\) rows are mixed. There must be a row wholly
+in \(S\): without one, all \(r^2/2\) vertices of \(S\) would lie in
+fewer than \(r/2\) rows, an impossibility. The same argument supplies a
+row wholly outside \(S\). In each of the \(r\) columns, a vertical
+path between these two rows has a crossing edge. These edges are distinct
+across columns, giving at least \(r\) crossing edges.
+
+Thus every such cut has at least \(r/2\) crossing edges. The grid has
+maximum degree at most 4. Lemma~\ref{lem:crossing-matching} gives a
+crossing induced matching of size at least
+\((r/2)/(2\cdot4^2)=r/64\), and hence width at least \(2^{r/64}\).
+Every variable order has a prefix of exactly \(r^2/2\) vertices, so the
+bound applies to every order.
+\end{proof}
+
+This is an explicit family of incidence-encoded SAT instances with an
+order-robust lower bound in a specified diagram model. It is not a lower
+bound for arbitrary descriptions of SAT tables. The selector-input length
+\(m=r^2\) is distinct from the length \(n\) of a conventional binary
+formula encoding; the full SAT table in the earlier sections still has
+length \(N=2^n\). No bitwise restriction or width-preserving translation
+from this incidence encoding to that formula encoding is established here.
+The robustness is over all orders of the specified selector bits, not over
+all encodings or all computational models.
+
+Moreover, \(g_G\) has a general circuit of size \(O(m+|E|)\), counting
+input nodes: test each edge and conjoin the answers. Since
+\(|E(G_r)|=2r(r-1)\), this size is \(O(m)\) for the grid family.
+The example therefore separates restricted ordered representations from
+small general circuits, rather than excluding those circuits.
+
+\begin{table}[htbp]
+\centering
+\input{../data/graph_order_widths.tex}
+\caption{Finite graph-family calculations \claimid{E02}. An exact dynamic
+program over subsets computes the minimum, over all variable orders, of
+the maximum residual width; it does not enumerate all orders factorially.
+These are finite consistency observations, not proofs of the asymptotic bound.}
+\label{tab:graph-orders}
+\end{table}
