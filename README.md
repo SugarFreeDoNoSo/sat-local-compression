@@ -15,6 +15,8 @@ Independent mathematical review is pending.
 - [Execution waves](docs/execution-waves.md), [detailed roadmap](docs/roadmap.md),
   and [live tracking issue](https://github.com/SugarFreeDoNoSo/sat-local-compression/issues/9).
 - [Literature notes](docs/literature.md).
+- [Lean formalization of L02](formal/README.md): minimum layered width equals
+  the number of distinct residuals, with one diagram attaining all cuts.
 - [Contribution rules](CONTRIBUTING.md) and [review checklist](docs/review-checklist.md).
 - [Publication plan](PUBLICATION.md) and [citation metadata](CITATION.cff).
 - [Initial validation record](docs/validation.md).
@@ -50,11 +52,15 @@ bits. See [the graph data guide](data/README.md) and
 Requirements: Python 3.11 or later, Make, latexmk, pdfLaTeX, BibTeX, and the
 LaTeX packages listed in [toolchain notes](docs/toolchain.md).
 No third-party Python packages are required.
+The full verification also requires pinned Lean 4.35.0 (bundled `Std`, no
+Mathlib); [formal setup and theorem correspondence](formal/README.md).
 
 On Ubuntu/Debian:
 
 ```sh
 sudo apt-get install latexmk texlive-latex-extra texlive-fonts-recommended lmodern
+sudo apt-get install zstd
+python3 scripts/setup_lean.py
 ```
 
 From the repository root:
@@ -62,12 +68,14 @@ From the repository root:
 ```sh
 make check       # experiments, tests, claim/reference integrity
 make pdf         # build/paper/main.pdf
-make verify      # checks + paper build + LaTeX warning gate
+make formal LAKE="$PWD/build/lean/lean-4.35.0-linux/bin/lake"
+make verify LAKE="$PWD/build/lean/lean-4.35.0-linux/bin/lake" # all gates
 make experiments # regenerate the committed finite tables
 ```
 
-GitHub Actions runs the checks and builds a downloadable PDF artifact on
-pushes and pull requests. After both jobs succeed on `main`, it also publishes
+GitHub Actions runs research checks, verifies L02 in Lean, and builds a
+downloadable PDF artifact on pushes and pull requests. After all three jobs
+succeed on `main`, it also publishes
 `main.pdf` in a [GitHub Release](https://github.com/SugarFreeDoNoSo/sat-local-compression/releases)
 with a `manuscript-<commit SHA>` tag. Manual runs on `main` publish a Release
 as well; rerunning the same commit replaces its PDF asset. Release assets are
@@ -82,6 +90,7 @@ A successful local build is not evidence that remote CI has run.
 | research/ | Claim register and initial issue backlog |
 | docs/ | Research, review, literature, and toolchain notes |
 | experiments/ | Exact finite residual-function experiments |
+| formal/ | Pinned Lean proof and manuscript correspondence for L02 |
 | tests/ | Independent finite consistency checks |
 | data/ | Reproducible CSV and LaTeX table |
 | scripts/ | Metadata and build-log validation |
@@ -98,8 +107,9 @@ lower bounds. See [CONTRIBUTING.md](CONTRIBUTING.md).
 ## Authorship and publication
 
 Project author: Matías Donoso Quiroga. Initial drafting and code were assisted
-by OpenAI ChatGPT/Codex. No venue, affiliation, DOI, or independent verification
-is claimed. Public hosting and scholarly submission are separate steps.
+by OpenAI ChatGPT/Codex. L02 has a Lean formalization; independent human review
+is pending. No venue, affiliation, or DOI is claimed. Public hosting and
+scholarly submission are separate steps.
 
 No additional reuse license has been selected yet. See [RIGHTS.md](RIGHTS.md).
 The author can choose manuscript and software licenses before a tagged release.

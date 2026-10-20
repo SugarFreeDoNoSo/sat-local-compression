@@ -1,0 +1,9 @@
+name = "residual_widths"
+version = "0.1.0"
+defaultTargets = ["ResidualWidths"]
+
+[leanOptions]
+warningAsError = true
+
+[[lean_lib]]
+name = "ResidualWidths"
