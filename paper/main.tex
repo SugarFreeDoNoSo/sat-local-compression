@@ -15,7 +15,7 @@ pdfauthor={Matias Donoso Quiroga}}
 \title{Local Descriptions of SAT Truth Tables:\\
 A Framework for Time--Description Trade-offs}
 \author{Matías Donoso Quiroga}
-\date{Working draft v0.1.0 --- September 29, 2026}
+\date{Working draft v0.1.1 --- October 20, 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -28,8 +28,11 @@ proofs of this characterization, the corresponding lower-bound quantifiers,
 and an elementary residual-function bound for ordered decision diagrams.
 A unit-clause satisfiability example has exponential width under a grouped
 input order and constant width under an interleaved order, illustrating why
-representation restrictions matter. Deterministic finite experiments reproduce
-the latter example. We distinguish these established observations from the
+representation restrictions matter. An explicit grid-incidence family has
+superpolynomial layered width for every selector order, while retaining
+linear-size general circuits. Exact finite experiments reproduce the unit-clause
+example and optimize graph examples over all orders. We distinguish these
+expository observations from the
 open objective of excluding all polynomial-size, polynomial-time local
 descriptions of SAT. This draft claims neither a new general circuit lower
 bound nor a resolution of \(P\) versus \(NP\).
@@ -41,8 +44,12 @@ Kolmogorov complexity; circuit complexity; ordered decision diagrams.
 \input{sections/03-equivalence}
 \input{sections/04-obstructions}
 \input{sections/05-restricted}
+\input{sections/05a-order-robust}
 \input{sections/06-research}
 \input{sections/07-reproducibility}
+\begingroup
+\small
 \bibliographystyle{plain}
 \bibliography{references}
+\endgroup
 \end{document}

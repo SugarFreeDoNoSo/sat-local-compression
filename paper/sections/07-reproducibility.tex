@@ -10,9 +10,20 @@ estimates.
 Tests compare the incidence predicate with an independent exhaustive
 unit-clause SAT verifier, check the grouped and interleaved width
 predictions on small inputs, and test a separate parity example.
-The manuscript table is regenerated and checked for drift.
+The manuscript tables are regenerated and checked for drift.
 These checks validate finite artifacts, not the general mathematical
 proofs.
+
+For graph selectors, a second exact experiment counts residuals for every
+read-variable subset. Their number depends on that subset, not on its internal
+order. A minimax dynamic program over subsets finds an optimal variable order,
+including initial and terminal layers. It evaluates matching-3, cycle-6,
+grid-2x3, cube-3, and grid-3x3, with at most nine input bits.
+Tests compare the optimizer with independent exhaustive permutation enumeration
+on selected functions of at most five bits. The graph predicate is also checked
+against a witness-enumerating SAT verifier for every simple graph on at most
+four vertices. These finite graphs include an odd grid; the data are not a
+proof of Proposition~\ref{prop:grid-orders}, which assumes an even side length.
 
 The command \texttt{make check} runs code and research-metadata checks;
 \texttt{make pdf} builds the paper with \texttt{latexmk};

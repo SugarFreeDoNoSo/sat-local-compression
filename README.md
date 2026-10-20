@@ -3,7 +3,7 @@
 An English-language mathematical research workspace for studying the trade-off
 between description length and exact local evaluation time for SAT truth tables.
 
-**Status: working draft v0.1.0.** The initial manuscript is expository.
+**Status: working draft v0.1.1.** The manuscript is expository.
 It does not prove P != NP or a new general circuit lower bound.
 Independent mathematical review is pending.
 
@@ -32,7 +32,16 @@ Its construction cost is excluded. Interpretation and access costs are included.
 The initial paper gives self-contained expository proofs of the standard
 equivalence between polynomial descriptions with polynomial query time and
 polynomial advice. It also contains counting and self-reduction observations
-and an ordered decision-diagram example. No novelty is claimed for these results.
+and ordered decision-diagram examples. An explicit grid-incidence SAT family has
+layered width at least 2^(r/64) for every order of its r^2 selector bits, for
+even r >= 2, while its general circuit size remains linear. This is an
+expository result in a specified representation, with no claimed transfer to
+general SAT circuits or novelty.
+
+The graph experiment finds an optimal order exactly using a subset dynamic
+program. Its finite data cover five named graphs with at most nine selector
+bits. See [the graph data guide](data/README.md) and
+[the W03 scope and verification note](docs/w03-restricted-model.md).
 
 ## Reproduce
 

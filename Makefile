@@ -3,10 +3,12 @@ PYTHON ?= python3
 check: test
 	$(PYTHON) scripts/check_research.py
 	$(PYTHON) experiments/obdd_residuals.py --check
+	$(PYTHON) experiments/graph_order_widths.py --check
 test:
 	$(PYTHON) -m unittest discover -s tests -v
 experiments:
 	$(PYTHON) experiments/obdd_residuals.py
+	$(PYTHON) experiments/graph_order_widths.py
 pdf:
 	$(PYTHON) scripts/build_paper.py
 verify: check pdf

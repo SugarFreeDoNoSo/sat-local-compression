@@ -79,6 +79,43 @@
       "statement": "Exhaustive residual counts for 1 <= m <= 7 illustrate P03 and P04.",
       "scope": "Exact finite data; no extrapolation as proof.",
       "depends_on": ["P03", "P04"], "sources": []
+    },
+    {
+      "id": "L03",
+      "label": "lem:crossing-matching",
+      "status": "expository-proved",
+      "statement": "A whole-graph induced matching of q edges crossing a read/unread cut forces at least 2^q residuals for the independent-set selector function. For maximum degree at most Delta >= 1 and c crossing edges, the layered width is at least 2^(c/(2 Delta^2)).",
+      "scope": "Finite simple undirected graph fixed per input family; selector bits indicate positive unit clauses added to fixed negative binary clauses. Deterministic layered diagrams read each selector once in a fixed order, allowing arbitrary merging. No general-circuit or conventional-SAT-encoding transfer is claimed.",
+      "depends_on": [
+        "L02"
+      ],
+      "sources": [
+        "BovaSlivovsky2017"
+      ]
+    },
+    {
+      "id": "P05",
+      "label": "prop:grid-orders",
+      "status": "expository-proved",
+      "statement": "For each even r >= 2, every variable order of the r-by-r grid independent-set selector function requires layered width at least 2^(r/64) after m/2 bits, where m = r^2.",
+      "scope": "Explicit incidence-encoded SAT family with m selector bits. The lower bound is 2^Omega(sqrt(m)) for all selector orders; the same function has a linear-size general circuit. No claim about SAT not in P/poly, novel lower bounds, or conventional SAT bit encodings.",
+      "depends_on": [
+        "L03"
+      ],
+      "sources": [
+        "BovaSlivovsky2017"
+      ]
+    },
+    {
+      "id": "E02",
+      "label": "tab:graph-orders",
+      "status": "finite-experiment",
+      "statement": "Exact subset dynamic programming computes the minimum maximum layered width over all variable orders for matching-3, cycle-6, grid-2x3, cube-3, and grid-3x3.",
+      "scope": "Five fixed incidence-encoded graph SAT predicates on 6, 6, 6, 8, and 9 selector bits, respectively. Initial and terminal layers are included. Exact finite data are checked against independent small-case SAT and permutation oracles; no asymptotic proof or factorial enumeration is claimed.",
+      "depends_on": [
+        "L02"
+      ],
+      "sources": []
     }
   ]
 }

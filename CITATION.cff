@@ -5,7 +5,7 @@ title: "Local Descriptions of SAT Truth Tables: A Framework for Time-Description
 authors:
   - family-names: "Donoso Quiroga"
     given-names: "Matías"
-version: 0.1.0
+version: 0.1.1
 repository-code: "https://github.com/SugarFreeDoNoSo/sat-local-compression"
 abstract: "Living mathematical manuscript and reproducible experiments on local descriptions, polynomial advice, and representation-sensitive lower bounds."
 keywords:
