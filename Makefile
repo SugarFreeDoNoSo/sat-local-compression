@@ -1,5 +1,6 @@
 PYTHON ?= python3
-.PHONY: check test experiments pdf verify clean
+LAKE ?= lake
+.PHONY: check test experiments pdf formal verify clean
 check: test
 	$(PYTHON) scripts/check_research.py
 	$(PYTHON) experiments/obdd_residuals.py --check
@@ -11,7 +12,9 @@ experiments:
 	$(PYTHON) experiments/graph_order_widths.py
 pdf:
 	$(PYTHON) scripts/build_paper.py
-verify: check pdf
+formal:
+	$(PYTHON) scripts/check_formal.py --lake "$(LAKE)"
+verify: check pdf formal
 	$(PYTHON) scripts/check_tex_log.py
 clean:
 	$(PYTHON) -c "import shutil; shutil.rmtree('build', ignore_errors=True)"

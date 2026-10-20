@@ -36,7 +36,15 @@
       "id": "L02", "label": "lem:residual", "status": "expository-proved",
       "statement": "Distinct residual functions characterize minimum width at a cut of a layered ordered diagram.",
       "scope": "Deterministic diagrams with fixed order and one read of each input bit.",
-      "depends_on": [], "sources": ["Bryant1986"]
+      "depends_on": [], "sources": ["Bryant1986"],
+      "formal_evidence": {
+        "assistant": "Lean 4.35.0",
+        "theorem": "ResidualWidths.residual_width_characterization",
+        "source": "formal/ResidualWidths/Diagram.lean",
+        "correspondence": "formal/README.md",
+        "command": "make formal LAKE=/path/to/pinned/lake",
+        "scope": "L02 only; independent human review remains pending."
+      }
     },
     {
       "id": "P03", "label": "prop:grouped", "status": "expository-proved",
