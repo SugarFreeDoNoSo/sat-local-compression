@@ -1,5 +1,9 @@
 # Mathematical review checklist
 
+Start with the [source-pinned review request](independent-review-packet.md) for
+the current claim inventory, reading order, evidence boundaries, and return
+record. Preparing that request does not complete this checklist or human review.
+
 - [ ] The statement is independent of the proof sketch.
 - [ ] Variables, encodings, models, and access costs are defined.
 - [ ] Universal evaluators have the required simulation efficiency.

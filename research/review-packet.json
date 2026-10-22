@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "kind": "review-request",
+  "source_revision": "19a33beaf62e6b8ec096955ea7a766001a16c723",
+  "source_sha256": {
+    "data/graph_order_widths.csv": "04556ff46692c128335a293bb6bc4dac7d383ec7337441840ad4f69e85ce8cd4",
+    "data/graph_order_widths.tex": "2c2f023e2880bb2ed4ea3d38a2ba9e3ccfc11448562267c303b0cbb701866b51",
+    "data/obdd_widths.csv": "4fa7693bf923b5bd831d703f17835a54d942b9b2856d84c62314bc2d7cd00fb9",
+    "data/obdd_widths.tex": "465e4a5a7d77b847817878ff6c17fcdea279e625e2cbecb07105c797114031a5",
+    "docs/literature.md": "402b56e185f291706e68a0d391e08dc3a94a457989fdeeab9dd5c396f4114eb6",
+    "docs/w01-evaluator-audit.md": "75bb6c4093e5f0f75e5a5ed8b73a67ba398886a77cbd09d80c7bcf986c1f8fdb",
+    "docs/w02-kt-comparison.md": "2652d64c02e06942640347a07c28fa96caf3e7dca9f61c15267ec2595fa4bb7b",
+    "docs/w03-restricted-model.md": "2f76d3913e4e7c71d2d703abe996a150e33200332a7d525d9689c24f7b26ae34",
+    "experiments/__init__.py": "ca11b2c3b12df900b344f9ed5886b28407beae5f965d1a34ef8ed243939f4d97",
+    "experiments/graph_order_widths.py": "4ace7ddf175efa6152cb8b0cb2ad1dabcd627159efd35df3d7845560c8597612",
+    "experiments/obdd_residuals.py": "819408c28ae9c4b5a368acec79218148567f94636de44068131e64391205d52a",
+    "formal/AxiomAudit.lean": "f1932a57dfff0a2a8f461c1e00b4075a690e3960a7daf014005ce590d2eba341",
+    "formal/README.md": "96f7af780b93dbb1727702321a49940430c525987172b883745d6a1090cff98d",
+    "formal/ResidualWidths.lean": "7e2b9b7b5487862d13ff130c559b4b8dc37fefc728bbdcb150d9d3984a722cea",
+    "formal/ResidualWidths/Diagram.lean": "904ed2f0307f8474fb3ec315434b0a4357fc881086982f609c3318d79e676e1e",
+    "formal/ResidualWidths/FiniteImage.lean": "791ad487aed2834d94191216448be04b9f1f5a3c0c10cc8e9d7234c4427f77e5",
+    "formal/lake-manifest.json": "8beb314da4f3f01cc724cee1597818e19e550ad6b070b2a274e403ecce9df792",
+    "formal/lakefile.toml": "e3ccd2a6c9912630a2a16c8ec8e11a3b55174ed98842b9ba7e949aba855c53b6",
+    "formal/lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "formal/toolchain.json": "e00e1cda2fdb236ef20f15df340e626d0187f86c7ebc04457ef67ffd56a18c75",
+    "lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "paper/macros.tex": "0893d6385b00440902df927cfffd2435109c9b83017cfcfdde6210d5ef9232e9",
+    "paper/main.tex": "4d9f95825645e6a7861a91423c821b133e141fe5273684ebf4bd3011c2ae1aa2",
+    "paper/references.bib": "b2070a6d67eb79df8e9190f7ba01b0827bea3947ccd284cc3b4014f201ae866f",
+    "paper/sections/01-scope.tex": "d6ac28d0723864b4a303aef108041fc129579143f9e72b33e297b1d89531b8e0",
+    "paper/sections/02-model.tex": "adc33e985862a2667afb84f23e9e6abcd447ee91297444ae5a6d78e4caf32a95",
+    "paper/sections/03-equivalence.tex": "645b7164e0ae3d156d5cb9e56358a21a0d29470a219896c07c299fa1037558a1",
+    "paper/sections/04-obstructions.tex": "8c800310c2155e87e3c4f5e119856ab0e2012969a81f8269120ae9f18f5ffe7c",
+    "paper/sections/05-restricted.tex": "d3a186dd4b6eb84cd4d9790bd8afa13703563bfe96e72bd4a12987f6b7d9a2c0",
+    "paper/sections/05a-order-robust.tex": "73ec28493a204b2fe6006caaedab66db16cb9268e92bc4e7cc8d2cd9db5c181d",
+    "paper/sections/06-research.tex": "33bffec86ec18b147124b12001a9c3610aa98c2b4e6cc2160be980d7188b4bdf",
+    "paper/sections/07-reproducibility.tex": "ba235cba1c2f651039f69a387765cdf560f4d1c580ac66003e4eaa9f0f3ef34e",
+    "research/claims.json": "392f7bf1c368e57f07f31088b1c78b7a11ae1dfc0e5c71309de721800a9cb0d2",
+    "scripts/check_formal.py": "b4a668da7118d6c1fad49832bf71e4f8456bfdd2fbcfc96fb5f5de29724685dc",
+    "scripts/setup_lean.py": "9d0b7f235e26dc3358ca60264e4b8221b0cd2f3bba5082f0cee74f80032904ac",
+    "tests/test_graph_orders.py": "84b684b54793f9ec17882646deda0b18c6d0878c0324d1864b89d4a724f32c90",
+    "tests/test_residuals.py": "cf2499c5dfdc222c0f27ecad3b61d066e791bd378e058c084494b98c0431f8c8"
+  },
+  "review_units": [
+    {
+      "id": "foundations",
+      "title": "Evaluator, advice equivalence, and the open target",
+      "claim_ids": [
+        "P01",
+        "T01",
+        "C01",
+        "Q01"
+      ],
+      "sources": [
+        "paper/sections/02-model.tex",
+        "paper/sections/03-equivalence.tex",
+        "paper/sections/06-research.tex",
+        "docs/w01-evaluator-audit.md",
+        "docs/w02-kt-comparison.md"
+      ],
+      "questions": [
+        "Does the charged deterministic multitape model admit the exact efficient simulation needed for both T01 directions, without free description access?",
+        "Is one description/advice string used for all queries of a fixed length, and are headers, malformed inputs, constants, and the finite exceptional lengths handled?",
+        "Does C01 retain every fixed pair of polynomial exponents and infinitely many failing lengths, rather than eventual failure? Is the absent converse from P != NP explicit?",
+        "Does P01 use only decidability, without accidentally promising efficient decoding? Are the W02 indexed KT, sequential L, and full-output measures distinguished under their actual overheads?"
+      ]
+    },
+    {
+      "id": "obstructions",
+      "title": "Counting and self-reduction limitations",
+      "claim_ids": [
+        "L01",
+        "P02"
+      ],
+      "sources": [
+        "paper/sections/04-obstructions.tex"
+      ],
+      "questions": [
+        "Does the description count include lengths zero through s and count each deterministic total answer table at most once, without turning a random-table argument into an explicit SAT bound?",
+        "Does the recurrence induction use the correct variable-free boundary and decreasing variable count? Are differing formula lengths and shared circuit subcomputations kept out of the uniqueness conclusion?"
+      ]
+    },
+    {
+      "id": "residual-width",
+      "title": "Layered residual widths and the limited Lean correspondence",
+      "claim_ids": [
+        "L02",
+        "P03",
+        "P04"
+      ],
+      "sources": [
+        "paper/sections/05-restricted.tex",
+        "formal/README.md",
+        "formal/ResidualWidths/Diagram.lean",
+        "formal/ResidualWidths/FiniteImage.lean",
+        "formal/AxiomAudit.lean",
+        "scripts/check_formal.py"
+      ],
+      "questions": [
+        "Does L02 measure reachable states at every cut of a deterministic fixed-order, read-once, layered diagram, including initial and terminal layers?",
+        "Does the canonical diagram attain all cuts simultaneously? Do SupportedAt and valid-suffix lemmas faithfully match finite Boolean tables, including constant functions and n = 0?",
+        "Is the correspondence from a possibly infinite formal carrier to finite reachable layers adequate? Are the compiler pin, allowed logical axioms, and axiom-audit limitations disclosed?",
+        "Are grouped width 2^m and interleaved width at most three claims confined to the same incidence encoding, rather than arbitrary SAT encodings or general circuits?"
+      ]
+    },
+    {
+      "id": "all-order-grid",
+      "title": "Induced matching and all-order grid arguments",
+      "claim_ids": [
+        "L03",
+        "P05"
+      ],
+      "sources": [
+        "paper/sections/05a-order-robust.tex",
+        "docs/w03-restricted-model.md"
+      ],
+      "questions": [
+        "Does the induced matching live in the whole graph, excluding same-side as well as cross-side endpoint edges? Does each greedy selection delete at most 2 Delta^2 crossing edges?",
+        "For every half-size read set in an even r-by-r grid, does the mixed-row argument yield at least r/2 crossing edges, including r = 2? Does this give the stated exponent r/64?",
+        "Are selector length m = r^2, conventional formula length n, and full-table length N = 2^n kept separate? Is the linear general-circuit upper bound preserved, with no width-preserving encoding transfer claimed?"
+      ]
+    },
+    {
+      "id": "finite-experiments",
+      "title": "Exact finite experiments, not asymptotic proofs",
+      "claim_ids": [
+        "E01",
+        "E02"
+      ],
+      "sources": [
+        "experiments/obdd_residuals.py",
+        "experiments/graph_order_widths.py",
+        "data/obdd_widths.csv",
+        "data/graph_order_widths.csv",
+        "tests/test_residuals.py",
+        "tests/test_graph_orders.py"
+      ],
+      "questions": [
+        "Do the declared domains remain 1 <= m <= 7 for E01 and the five named graphs with at most nine selectors for E02, with boundary layers counted?",
+        "Does subset dynamic programming optimize maximum residual width over all orders, and do independent SAT/permutation oracles check implementation behavior rather than certify asymptotic theorems?"
+      ]
+    },
+    {
+      "id": "conditional-literature",
+      "title": "Conditional literature and missing transfer",
+      "claim_ids": [
+        "R01",
+        "R02",
+        "R03"
+      ],
+      "sources": [
+        "paper/sections/06-research.tex",
+        "paper/references.bib",
+        "docs/literature.md",
+        "docs/w02-kt-comparison.md"
+      ],
+      "questions": [
+        "Does R01 retain the checked-SAT-solver restriction of Chapman-Williams Theorem 1.1, rather than describe arbitrary separating properties?",
+        "Against the specified Oliveira-Pich-Santhanam Theorem 1.4, does R02 preserve both promise thresholds, universal c, existence of epsilon, every sufficiently small constant beta, and input length N?",
+        "What concrete reduction, source/target promises and resource transformations would connect a proved source result to R02? None is currently supplied; do not treat the grid bound as that missing step.",
+        "Does R03 retain the exact NP-hardness hypothesis and chain-rule convention from the cited revision, without identifying its full-output measure with local access?",
+        "Which primary sources and versions were actually inspected in this review? Record unverified bibliography or novelty questions explicitly, not as endorsements."
+      ]
+    }
+  ]
+}

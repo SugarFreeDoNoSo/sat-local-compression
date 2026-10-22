@@ -18,6 +18,9 @@ Independent mathematical review is pending.
 - [Lean formalization of L02](formal/README.md): minimum layered width equals
   the number of distinct residuals, with one diagram attaining all cuts.
 - [Contribution rules](CONTRIBUTING.md) and [review checklist](docs/review-checklist.md).
+- [Independent-review request](docs/independent-review-packet.md): pinned source
+  snapshot, all 16 claims, scope-specific questions, and a findings-return guide.
+  Preparation is not independent human review.
 - [Publication plan](PUBLICATION.md) and [citation metadata](CITATION.cff).
 - [Initial validation record](docs/validation.md).
 - [Codex research handoff](docs/codex-handoff.md).

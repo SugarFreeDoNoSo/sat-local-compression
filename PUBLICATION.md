@@ -3,6 +3,10 @@
 The current working draft establishes the research framework. It is expository
 and is not presented as a new complexity separation.
 
+The [independent-review request](docs/independent-review-packet.md) supplies a
+source-pinned reading packet and findings-return guide. It selects no reviewer,
+venue, license, or contribution, and does not satisfy the review gates below.
+
 Before an external preprint or journal submission:
 
 - [ ] Identify the contribution and complete a novelty/literature review.

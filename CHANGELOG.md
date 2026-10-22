@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Prepared a source-pinned independent-review request covering every registered
+  claim, its evidence boundaries, targeted questions, and findings-return record.
+- Added a reproducible packet check and regression tests for source drift,
+  coverage, and stale generated documentation. Independent human review remains
+  pending; mathematical statements and their statuses are unchanged.
+
 ## 0.1.1 - Working draft, October 20, 2026
 
 - Added a self-contained induced-matching residual bound and an explicit grid
