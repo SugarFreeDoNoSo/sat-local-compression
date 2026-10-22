@@ -68,7 +68,7 @@ Read:
 - [`paper/sections/04-obstructions.tex`](../paper/sections/04-obstructions.tex)
 
 Questions:
-1. Does the description count include lengths zero through s and count each deterministic total answer table at most once, without turning a random-table argument into an explicit SAT bound?
+1. Does the description count include lengths zero through s, with each time-valid description determining at most one total answer table, without turning a random-table argument into an explicit SAT bound?
 2. Does the recurrence induction use the correct variable-free boundary and decreasing variable count? Are differing formula lengths and shared circuit subcomputations kept out of the uniqueness conclusion?
 
 ### 3. Layered residual widths and the limited Lean correspondence (`residual-width`)
