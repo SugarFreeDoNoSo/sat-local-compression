@@ -1,7 +1,8 @@
-# L02: residual functions and layered width
+# L02 and P03: residual widths and grouped disjointness
 
 This project formalizes both directions of manuscript Lemma L02
-(`lem:residual`) in Lean **4.35.0**, using its bundled `Std` library.
+(`lem:residual`) and the exact midpoint-width statement of Proposition P03
+(`prop:grouped`) in Lean **4.35.0**, using its bundled `Std` library.
 There are no external Lake packages or Mathlib dependency.
 
 ## Reproduce
@@ -86,6 +87,44 @@ than a separately chosen diagram for each cut. The terminal count is the number
 of Boolean outputs actually attained, so constant functions have final width
 one; a two-state final layer is not assumed.
 
+## P03: grouped-order disjointness correspondence
+
+The additional source is [Disjointness.lean](ResidualWidths/Disjointness.lean).
+For each natural `m`, `groupedDisjointness m` is a Boolean function supported
+at length `m + m`. Its first `m` bits encode the positive unit clauses and its
+last `m` bits encode the negative unit clauses. The recursive `disjointBits`
+predicate checks `not (a_i and b_i)` at every corresponding pair. Unequal
+lengths are rejected; the theorem `groupedDisjointness_append` proves that the
+supported extension agrees exactly with this predicate on every valid pair of
+`m`-bit words. Thus no extra answer is introduced by the total-list convention.
+This is the manuscript's incidence encoding, not a general SAT bit encoding.
+
+| Manuscript P03 step | Formal theorem |
+| --- | --- |
+| All-zero suffix is compatible with any prefix | `disjointBits_zero_right` |
+| Different prefixes have different disjointness-answer functions | `disjointBits_left_injective` |
+| Fixed-length support and valid grouped-input semantics | `groupedDisjointness_supported`, `groupedDisjointness_append` |
+| Different midpoint prefixes induce different residuals | `grouped_residual_injective` |
+| Every `m`-bit prefix occurs exactly once | `nodup_allWords`, with existing `length_allWords` |
+| Exactly `2^m` midpoint residuals | `grouped_residual_count` |
+| Every correct grouped-order diagram needs that width | `grouped_width_lower_bound` |
+| Lower bound and one correct diagram attaining it | `grouped_width_characterization` |
+
+The injectivity proof uses the same distinguishing-suffix mechanism as the
+manuscript. A suffix with its first bit true and all remaining bits false
+recovers the first prefix bit. False-leading suffixes reduce equality of answer
+functions to equality for the remaining coordinates, and induction recovers the
+whole prefix. This proves injectivity on all `m`-bit prefixes, not just finite
+tested examples. The count uses their duplicate-free enumeration and the
+existing cardinality `2^m`, rather than assuming the desired number of residuals.
+L02 then supplies the lower bound and canonical attainability simultaneously.
+
+Every natural `m` is covered, including `m = 0`: the empty pair is accepted,
+there is one residual, and `2^0 = 1` is the width of the initial/terminal layer.
+The fixed order is all positive selectors followed by all negative selectors.
+Nothing here formalizes P04's different interleaved order, the graph/grid
+arguments, arbitrary SAT encodings, general circuits, or the open Q01 target.
+
 ## Verification evidence and trust
 
 `scripts/check_formal.py` builds with warnings treated as errors, then invokes
@@ -111,7 +150,14 @@ fixtures confirmed rejection of custom axioms, a namespaced `propext`, direct
 The warning gate also rejected `sorry` with a nonzero compiler exit code.
 These control fixtures test the verification guard; they are not the L02 proof.
 
-This is formal verification of **L02 only**. It does not formalize T01, the
-graph/grid lower bounds, or any open SAT lower-bound target, and does not fulfill
-W01's independent human-review criterion. Claim statuses retain their existing
-research categories; L02's separate evidence field records this formalization.
+Wave 09 local validation on October 23, 2026: the pinned compiler verified
+P03 and its L02 dependency with **27 audited theorem closures**. The nine new
+closures cover the P03 predicates, correspondence, injectivity, exact count, and
+width characterization. The earlier 18-closure report above is historical.
+`build/formal/verification.json` now lists `claims: ["L02", "P03"]` explicitly.
+
+This is formal verification of **L02 and P03 only**. It does not formalize T01,
+P04, the graph/grid lower bounds, or any open SAT lower-bound target, and does
+not fulfill W01's independent human-review criterion. Claim statuses retain
+their existing research categories; separate evidence fields record these
+formalizations. The correspondence prose still requires mathematical review.

@@ -15,8 +15,8 @@ Independent mathematical review is pending.
 - [Execution waves](docs/execution-waves.md), [detailed roadmap](docs/roadmap.md),
   and [live tracking issue](https://github.com/SugarFreeDoNoSo/sat-local-compression/issues/9).
 - [Literature notes](docs/literature.md).
-- [Lean formalization of L02](formal/README.md): minimum layered width equals
-  the number of distinct residuals, with one diagram attaining all cuts.
+- [Lean formalizations of L02 and P03](formal/README.md): the residual-width
+  characterization and exact grouped-disjointness midpoint width `2^m`.
 - [Contribution rules](CONTRIBUTING.md) and [review checklist](docs/review-checklist.md).
 - [Publication plan](PUBLICATION.md) and [citation metadata](CITATION.cff).
 - [Initial validation record](docs/validation.md).
@@ -73,7 +73,7 @@ make verify LAKE="$PWD/build/lean/lean-4.35.0-linux/bin/lake" # all gates
 make experiments # regenerate the committed finite tables
 ```
 
-GitHub Actions runs research checks, verifies L02 in Lean, and builds a
+GitHub Actions runs research checks, verifies L02 and P03 in Lean, and builds a
 downloadable PDF artifact on pushes and pull requests. After all three jobs
 succeed on `main`, it also publishes
 `main.pdf` in a [GitHub Release](https://github.com/SugarFreeDoNoSo/sat-local-compression/releases)
@@ -107,7 +107,7 @@ lower bounds. See [CONTRIBUTING.md](CONTRIBUTING.md).
 ## Authorship and publication
 
 Project author: Matías Donoso Quiroga. Initial drafting and code were assisted
-by OpenAI ChatGPT/Codex. L02 has a Lean formalization; independent human review
+by OpenAI ChatGPT/Codex. L02 and P03 have Lean formalizations; independent human review
 is pending. No venue, affiliation, or DOI is claimed. Public hosting and
 scholarly submission are separate steps.
 
