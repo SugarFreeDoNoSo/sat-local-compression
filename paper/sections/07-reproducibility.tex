@@ -27,7 +27,8 @@ proof of Proposition~\ref{prop:grid-orders}, which assumes an even side length.
 
 The command \texttt{make check} runs code and research-metadata checks;
 \texttt{make pdf} builds the paper with \texttt{latexmk};
-\texttt{make formal} verifies Lemma~\ref{lem:residual} in pinned Lean~4.35.0;
+\texttt{make formal} verifies Lemma~\ref{lem:residual} and
+Proposition~\ref{prop:grouped} in pinned Lean~4.35.0;
 \texttt{make verify} performs all these checks and checks the LaTeX log.
 The README lists the toolchain.
 The formal project uses the bundled standard library without Mathlib.
@@ -36,7 +37,10 @@ all cuts, including the initial and final layers. An axiom audit permits
 only Lean's standard logical axioms for these theorems; it rejects proof
 placeholders and custom axioms. The repository's formal guide matches the
 finite reachable-state and fixed-length conventions to the manuscript.
-This formalization covers L02, not the other claims.
+The grouped-disjointness formalization also proves the exact midpoint count
+\(2^m\) for every \(m\geq0\), including the empty-input case, and obtains
+the minimum-width characterization from the residual theorem. These
+formalizations cover L02 and P03, not the other claims.
 Independent review must inspect the evaluator model, uniformity
 quantifiers, finite exceptions, and representation restrictions.
 Journal or preprint submission remains an author-controlled future step.

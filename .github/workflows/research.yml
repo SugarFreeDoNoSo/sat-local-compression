@@ -60,7 +60,7 @@ jobs:
           retention-days: 30
 
   formal:
-    name: Verify L02 in Lean
+    name: Verify L02 and P03 in Lean
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
@@ -78,7 +78,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: formal-L02-${{ github.sha }}
+          name: formal-L02-P03-${{ github.sha }}
           path: build/formal/
           if-no-files-found: warn
           retention-days: 30

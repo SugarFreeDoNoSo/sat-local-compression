@@ -50,7 +50,15 @@
       "id": "P03", "label": "prop:grouped", "status": "expository-proved",
       "statement": "The grouped-order disjointness diagram has width 2^m at its midpoint.",
       "scope": "Incidence-encoded unit-clause SAT; not arbitrary formula encodings or circuits.",
-      "depends_on": ["L02"], "sources": []
+      "depends_on": ["L02"], "sources": [],
+      "formal_evidence": {
+        "assistant": "Lean 4.35.0",
+        "theorem": "ResidualWidths.grouped_width_characterization",
+        "source": "formal/ResidualWidths/Disjointness.lean",
+        "correspondence": "formal/README.md",
+        "command": "make formal LAKE=/path/to/pinned/lake",
+        "scope": "P03 for every m >= 0 in the fixed grouped incidence order, using L02; not P04 or the graph/grid bounds. Independent human review remains pending."
+      }
     },
     {
       "id": "P04", "label": "prop:interleaved", "status": "expository-proved",

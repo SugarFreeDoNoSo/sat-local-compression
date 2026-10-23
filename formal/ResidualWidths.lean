@@ -1,1 +1,2 @@
 import ResidualWidths.Diagram
+import ResidualWidths.Disjointness

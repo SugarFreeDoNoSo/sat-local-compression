@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build L02 with the pinned Lean toolchain and audit theorem axiom closures."""
+"""Build L02 and P03 with the pinned Lean toolchain and audit theorem axiom closures."""
 
 import argparse
 import json
@@ -33,6 +33,15 @@ THEOREMS = {
         "reachable_step",
         "length_allWords",
         "reachableWidth_le_prefixes",
+        "disjointBits_zero_right",
+        "disjointBits_left_injective",
+        "groupedDisjointness_supported",
+        "groupedDisjointness_append",
+        "grouped_residual_injective",
+        "nodup_allWords",
+        "grouped_residual_count",
+        "grouped_width_lower_bound",
+        "grouped_width_characterization",
     )
 }
 
@@ -103,10 +112,10 @@ def main():
                  "--json", "AxiomAudit.lean"],
                 logs / "axioms.jsonl")
     found = parse_audit(audit)
-    report = {"claim": "L02", "lean": version, "theorem_axioms": found,
+    report = {"claims": ["L02", "P03"], "lean": version, "theorem_axioms": found,
               "allowed_axioms": sorted(ALLOWED_AXIOMS)}
     (logs / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    print(f"L02 verified with Lean {pin['version']}: {len(found)} theorem axiom closures checked.")
+    print(f"L02 and P03 verified with Lean {pin['version']}: {len(found)} theorem axiom closures checked.")
     print(f"Evidence: {logs.relative_to(ROOT)}/verification.json")
 
 
