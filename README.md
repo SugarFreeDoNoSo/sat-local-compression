@@ -21,6 +21,8 @@ Independent mathematical review is pending.
   the number of distinct residuals, with one diagram attaining all cuts.
 - [Contribution rules](CONTRIBUTING.md) and [review checklist](docs/review-checklist.md).
 - [Publication plan](PUBLICATION.md) and [citation metadata](CITATION.cff).
+- [Publication preparation](docs/w06-publication-preparation.md): contribution
+  scope, source/version checks and remaining review and author decisions.
 - [Initial validation record](docs/validation.md).
 - [Codex research handoff](docs/codex-handoff.md).
 
