@@ -47,3 +47,37 @@ and acknowledges missing treatment of out-of-range positions in the earlier
 proof discussion. A gate-only comparison or an exact local-L/KT identity is
 not justified by those sources. The publisher PDF returned HTTP 403 during
 this audit; no journal-specific page locators are inferred from the author PDF.
+
+## W04 source audit — October 23, 2026
+
+The published Oliveira–Pich–Santhanam PDF was checked for Section 1.2 (p. 4),
+Theorem 1.4 (p. 6), Definition 2.4 (p. 11), and the proof in Section 4.1
+(pp. 17–18). SHA256:
+`81b1ff4ede5180dc88f99c8a4856cfde623f6fefb5b99ef9f5526899bf43ab4a`.
+
+The exact NO promise is circuit complexity **strictly greater** than the upper
+threshold. The introduction's informal wording does not replace the definition.
+The theorem uses fixed-basis fan-in-two general circuits, counting gates, and
+the full table length `N = 2^n`. A common epsilon must work for every sufficiently
+small fixed beta. See the [applicability audit](w04-transfer-audit.md) for the
+promise, resource contract, and explicit missing reduction. No transfer is
+established.
+
+## W06 metadata check — October 23, 2026
+
+The [publication preparation dossier](w06-publication-preparation.md) records
+primary/editorial metadata checks for all seven bibliography entries. These
+checks do not complete a novelty assessment or human mathematical review.
+
+The original six-entry table above predates the graph extension. Its additional
+source is Bova and Slivovsky, [On Compiling Structured CNFs to OBDDs](https://link.springer.com/article/10.1007/s00224-016-9715-z),
+Theory of Computing Systems 61(2), 637–655 (2017), DOI
+`10.1007/s00224-016-9715-z`. The editorial page distinguishes online publication
+on October 26, 2016 from the 2017 print issue. Section 4/Theorem 19 supplies
+stronger expander-based background; the grid example claims no novelty.
+
+The dossier also distinguishes author-PDF dates from conference/journal dates,
+the print and digital book dates, and ECCC's original report from Revision 1.
+The source's actual article/revision record takes precedence over stale or
+incomplete machine-readable metadata. No unverified theorem-page locator or
+publication date is supplied for the undated Allender–van Melkebeek clarification.

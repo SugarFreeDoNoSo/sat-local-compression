@@ -82,7 +82,12 @@
       "id": "R02", "status": "conditional-literature",
       "statement": "The specified Gap-MCSP circuit lower bounds magnify to NP not in P/poly.",
       "scope": "Oliveira-Pich-Santhanam Theorem 1.4; full-table length, exact promise thresholds, and beta quantifiers.",
-      "depends_on": [], "sources": ["OliveiraPichSanthanam2021"]
+      "depends_on": [], "sources": ["OliveiraPichSanthanam2021"],
+      "applicability_audit": {
+        "path": "docs/w04-transfer-audit.md",
+        "result": "No transfer established; the full grid-table candidate is eventually on the YES side. The general-circuit antecedent remains open.",
+        "promise": "Definition 2.4: YES Size <= s1; NO Size > s2."
+      }
     },
     {
       "id": "R03", "status": "conditional-literature",
@@ -132,6 +137,12 @@
         "L02"
       ],
       "sources": []
+    },
+    {
+      "id": "L04", "label": "lem:graph-signatures", "status": "expository-proved",
+      "statement": "For a finite simple graph and read set S, the exact residual width is the number of distinct unread-neighborhood unions of independent subsets of S, plus one if the induced read graph has an edge.",
+      "scope": "Fixed graph-selector incidence SAT representation and deterministic layered fixed-order diagrams. Includes empty and full cuts and the graph on no vertices. Looplessness is essential to singleton-suffix separation. No novelty, formal verification, general-circuit lower bound, or conventional-SAT-encoding transfer is claimed.",
+      "depends_on": ["L02"], "sources": []
     }
   ]
 }

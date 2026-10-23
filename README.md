@@ -15,10 +15,14 @@ Independent mathematical review is pending.
 - [Execution waves](docs/execution-waves.md), [detailed roadmap](docs/roadmap.md),
   and [live tracking issue](https://github.com/SugarFreeDoNoSo/sat-local-compression/issues/9).
 - [Literature notes](docs/literature.md).
+- [Gap-MCSP applicability audit](docs/w04-transfer-audit.md): exact promises,
+  reduction direction, resource accounting, and the missing transfer.
 - [Lean formalizations of L02 and P03](formal/README.md): the residual-width
   characterization and exact grouped-disjointness midpoint width `2^m`.
 - [Contribution rules](CONTRIBUTING.md) and [review checklist](docs/review-checklist.md).
 - [Publication plan](PUBLICATION.md) and [citation metadata](CITATION.cff).
+- [Publication preparation](docs/w06-publication-preparation.md): contribution
+  scope, source/version checks and remaining review and author decisions.
 - [Initial validation record](docs/validation.md).
 - [Codex research handoff](docs/codex-handoff.md).
 
