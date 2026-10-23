@@ -1,0 +1,64 @@
+\subsection{Exact residual signatures for the graph family}
+The same graph-selector representation also permits an exact description of
+every residual, rather than only a lower bound. The following is an elementary
+expository observation; no novelty or general-circuit consequence is claimed.
+
+\begin{lemma}[Graph residual signatures \claimid{L04}]
+\label{lem:graph-signatures}
+Let \(G=(V,E)\) be a finite simple undirected graph and
+\(g_G(y)=\bigwedge_{\{u,v\}\in E}\neg(y_u\land y_v)\).
+Fix a read set \(S\subseteq V\), put \(T=V\setminus S\), and let
+\[
+ \mathcal F_G(S)=
+ \{N_G(A)\cap T:A\subseteq S,\ A\text{ is independent in }G\},
+\]
+where \(N_G(A)=\bigcup_{a\in A}N_G(a)\) is the union of open
+neighborhoods. Then the number of distinct residuals at this cut, and
+therefore its minimum layered width, is exactly
+\[
+ R_G(S)=|\mathcal F_G(S)|+\mathbf 1_{E(G[S])\ne\varnothing}.
+\]
+The formula includes \(S=\varnothing\), \(S=V\), and \(V=\varnothing\).
+\end{lemma}
+\begin{proof}
+Identify a prefix with its selected vertices \(A\subseteq S\) and a
+suffix with its selected vertices \(B\subseteq T\). If \(A\) is not
+independent, the residual is identically zero. Such a prefix exists exactly
+when \(G[S]\) has an edge: select its two endpoints for the reverse
+implication.
+
+If \(A\) is independent, partition possible edges of \(G[A\cup B]\)
+into those inside \(A\), inside \(B\), and between them. The first kind
+is absent. The second kind is absent exactly when \(B\) is independent in
+\(G[T]\), and the third exactly when
+\(B\cap (N_G(A)\cap T)=\varnothing\). Thus the residual is
+\[
+ B\longmapsto
+ \mathbf 1_{B\text{ independent in }G[T]}
+ \mathbf 1_{B\cap (N_G(A)\cap T)=\varnothing}.
+\]
+It depends on the prefix only through \(F=N_G(A)\cap T\), and it
+accepts \(B=\varnothing\), so it is not the dead residual.
+
+For distinct \(F,F'\in\mathcal F_G(S)\), choose a vertex \(v\) in
+their symmetric difference. The suffix \(B=\{v\}\) is independent
+because \(G\) has no loops. Its answer is zero exactly for the signature
+containing \(v\), so these two live residuals differ. Hence the live
+residuals are in bijection with \(\mathcal F_G(S)\); add the single
+dead residual precisely in the case already identified. Lemma~\ref{lem:residual}
+converts the residual count to the minimum width.
+
+At the empty cut, only \(A=\varnothing\) occurs, giving width one.
+At the full cut, every live signature is empty, giving width one for an
+edgeless graph and two otherwise. For the graph on no vertices, both cuts
+coincide and the width is one. These also follow directly from the formula.
+\end{proof}
+
+For \(m=|V|\), enumerating independent subsets of every read set performs
+at most \(\sum_{S\subseteq V}2^{|S|}=3^m\) subset visits. Precomputed
+independence flags and neighborhood masks avoid constructing suffix truth
+tables; integer-mask operations still have their usual bit costs. The
+implementation retains a finite ten-selector cap and is cross-checked against
+the separate full-truth-table residual oracle. This is an exact finite
+algorithm in the stated graph representation, not a polynomial-time
+algorithm for arbitrary SAT or an asymptotic lower-bound proof by testing.

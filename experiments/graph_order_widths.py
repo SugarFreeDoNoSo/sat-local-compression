@@ -113,7 +113,24 @@ def optimal_order(
     subset order visits every predecessor first. Ties choose the smallest last
     variable index; reconstruction and generated files are deterministic.
     """
-    widths = residual_widths_by_subset(function, num_inputs)
+    return optimal_order_from_subset_widths(
+        residual_widths_by_subset(function, num_inputs), num_inputs
+    )
+
+
+def optimal_order_from_subset_widths(
+    subset_widths: Iterable[int], num_inputs: int
+) -> OptimalOrder:
+    """Apply the minimax recurrence to an already computed exact width table.
+
+    Entry S is the positive residual count at read-set mask S. The caller is
+    responsible for supplying actual residual counts; validation checks only
+    shape and positive integer entries, not mathematical correctness.
+    """
+    _check_num_inputs(num_inputs)
+    widths = tuple(subset_widths)
+    if len(widths) != 1 << num_inputs or any(type(w) is not int or w < 1 for w in widths):
+        raise ValueError("A positive integer width is required for each read-set mask.")
     best = [0] * len(widths)
     previous = [0] * len(widths)
     best[0] = widths[0]
