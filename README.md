@@ -20,6 +20,9 @@ Independent mathematical review is pending.
 - [Lean formalizations of L02 and P03](formal/README.md): the residual-width
   characterization and exact grouped-disjointness midpoint width `2^m`.
 - [Contribution rules](CONTRIBUTING.md) and [review checklist](docs/review-checklist.md).
+- [Independent-review request](docs/independent-review-packet.md): pinned source
+  snapshot, all 17 claims, scope-specific questions, and a findings-return guide.
+  Preparation is not independent human review.
 - [Publication plan](PUBLICATION.md) and [citation metadata](CITATION.cff).
 - [Publication preparation](docs/w06-publication-preparation.md): contribution
   scope, source/version checks and remaining review and author decisions.
@@ -94,7 +97,7 @@ A successful local build is not evidence that remote CI has run.
 | research/ | Claim register and initial issue backlog |
 | docs/ | Research, review, literature, and toolchain notes |
 | experiments/ | Exact finite residual-function experiments |
-| formal/ | Pinned Lean proof and manuscript correspondence for L02 |
+| formal/ | Pinned Lean proofs and manuscript correspondence for L02 and P03 |
 | tests/ | Independent finite consistency checks |
 | data/ | Reproducible CSV and LaTeX table |
 | scripts/ | Metadata and build-log validation |

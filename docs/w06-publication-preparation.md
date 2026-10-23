@@ -11,7 +11,24 @@ author decision about the article's scope. They do not establish a new complexit
 separation, independent human review, or a completed novelty audit. W06 remains
 open, and no scholarly submission or reuse license is selected by this draft.
 
-## Contribution inventory
+## Current integrated snapshot — 2026-10-23
+
+The subsequent authorized integration of PRs #20, #21 and #22 is now recorded in
+[the integration and review-packet refresh record](pr-integration-2026-10-23.md).
+Its accepted technical source is `82a3af3844fdc11690f7ccf47d2d7fc259246ee0`:
+17 claims, L04 graph signatures, whole-graph matching certificates, and named
+Lean evidence for L02/P03 only. PR16 is refreshed against that existing source,
+with 48 fingerprints and seven review units; it remains a review request, not a
+completed independent human review.
+
+The historical inventory, branch snapshots and local-combination evidence below
+are retained as dated records. Their earlier “awaiting integration” and “keep
+PR16 draft” directions describe the pre-authorization state and are superseded
+only for the authorized technical integration. All human-review, novelty,
+authorship, licensing and submission gates remain unchanged. Use the linked
+current record rather than these older counts when evaluating the integrated tree.
+
+## Historical contribution inventory before PR20/21/22
 
 The following is a candidate contribution statement for the author's review:
 
@@ -39,7 +56,7 @@ selector length `m` must remain visible. Robustness over selector orders is a
 property of the chosen incidence representation; no width-preserving translation
 to the conventional SAT truth table is asserted.
 
-## Prepared additions awaiting author disposition
+## Historical prepared additions before author-authorized integration
 
 PRs [#20](https://github.com/SugarFreeDoNoSo/sat-local-compression/pull/20),
 [#21](https://github.com/SugarFreeDoNoSo/sat-local-compression/pull/21), and
@@ -169,7 +186,7 @@ below until the corresponding evidence or author decision exists.
 Technical integration, a green workflow, and release creation do not satisfy the
 human-review, novelty, licensing, or venue decisions in this table.
 
-## Independent review packet and PR 16
+## Historical independent review packet and PR 16
 
 The legacy [draft PR #16](https://github.com/SugarFreeDoNoSo/sat-local-compression/pull/16)
 was prepared against the older `19a33be` baseline with 16 registered entries.

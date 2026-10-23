@@ -3,6 +3,7 @@ LAKE ?= lake
 .PHONY: check test experiments pdf formal verify clean
 check: test
 	$(PYTHON) scripts/check_research.py
+	$(PYTHON) scripts/check_review_packet.py
 	$(PYTHON) experiments/obdd_residuals.py --check
 	$(PYTHON) experiments/graph_order_widths.py --check
 	$(PYTHON) experiments/matching_certificates.py --check
