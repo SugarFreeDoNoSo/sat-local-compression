@@ -47,3 +47,18 @@ and acknowledges missing treatment of out-of-range positions in the earlier
 proof discussion. A gate-only comparison or an exact local-L/KT identity is
 not justified by those sources. The publisher PDF returned HTTP 403 during
 this audit; no journal-specific page locators are inferred from the author PDF.
+
+## W04 source audit — October 23, 2026
+
+The published Oliveira–Pich–Santhanam PDF was checked for Section 1.2 (p. 4),
+Theorem 1.4 (p. 6), Definition 2.4 (p. 11), and the proof in Section 4.1
+(pp. 17–18). SHA256:
+`81b1ff4ede5180dc88f99c8a4856cfde623f6fefb5b99ef9f5526899bf43ab4a`.
+
+The exact NO promise is circuit complexity **strictly greater** than the upper
+threshold. The introduction's informal wording does not replace the definition.
+The theorem uses fixed-basis fan-in-two general circuits, counting gates, and
+the full table length `N = 2^n`. A common epsilon must work for every sufficiently
+small fixed beta. See the [applicability audit](w04-transfer-audit.md) for the
+promise, resource contract, and explicit missing reduction. No transfer is
+established.

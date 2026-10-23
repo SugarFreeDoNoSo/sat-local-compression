@@ -15,6 +15,8 @@ Independent mathematical review is pending.
 - [Execution waves](docs/execution-waves.md), [detailed roadmap](docs/roadmap.md),
   and [live tracking issue](https://github.com/SugarFreeDoNoSo/sat-local-compression/issues/9).
 - [Literature notes](docs/literature.md).
+- [Gap-MCSP applicability audit](docs/w04-transfer-audit.md): exact promises,
+  reduction direction, resource accounting, and the missing transfer.
 - [Lean formalization of L02](formal/README.md): minimum layered width equals
   the number of distinct residuals, with one diagram attaining all cuts.
 - [Contribution rules](CONTRIBUTING.md) and [review checklist](docs/review-checklist.md).
