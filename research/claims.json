@@ -74,7 +74,12 @@
       "id": "R02", "status": "conditional-literature",
       "statement": "The specified Gap-MCSP circuit lower bounds magnify to NP not in P/poly.",
       "scope": "Oliveira-Pich-Santhanam Theorem 1.4; full-table length, exact promise thresholds, and beta quantifiers.",
-      "depends_on": [], "sources": ["OliveiraPichSanthanam2021"]
+      "depends_on": [], "sources": ["OliveiraPichSanthanam2021"],
+      "applicability_audit": {
+        "path": "docs/w04-transfer-audit.md",
+        "result": "No transfer established; the full grid-table candidate is eventually on the YES side. The general-circuit antecedent remains open.",
+        "promise": "Definition 2.4: YES Size <= s1; NO Size > s2."
+      }
     },
     {
       "id": "R03", "status": "conditional-literature",

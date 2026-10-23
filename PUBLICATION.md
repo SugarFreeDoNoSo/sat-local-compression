@@ -3,6 +3,10 @@
 The current working draft establishes the research framework. It is expository
 and is not presented as a new complexity separation.
 
+The [W06 preparation dossier](docs/w06-publication-preparation.md) records the
+contribution inventory, checked bibliographic metadata, technical evidence and
+remaining author decisions. Its preparation does not complete the checklist.
+
 Before an external preprint or journal submission:
 
 - [ ] Identify the contribution and complete a novelty/literature review.
