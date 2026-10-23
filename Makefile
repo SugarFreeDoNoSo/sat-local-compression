@@ -5,11 +5,13 @@ check: test
 	$(PYTHON) scripts/check_research.py
 	$(PYTHON) experiments/obdd_residuals.py --check
 	$(PYTHON) experiments/graph_order_widths.py --check
+	$(PYTHON) experiments/matching_certificates.py --check
 test:
 	$(PYTHON) -m unittest discover -s tests -v
 experiments:
 	$(PYTHON) experiments/obdd_residuals.py
 	$(PYTHON) experiments/graph_order_widths.py
+	$(PYTHON) experiments/matching_certificates.py
 pdf:
 	$(PYTHON) scripts/build_paper.py
 formal:
