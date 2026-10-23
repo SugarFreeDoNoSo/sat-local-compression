@@ -17,11 +17,15 @@ SOURCE_PATTERNS = (
     "paper/*.tex", "paper/sections/*.tex", "paper/*.bib",
     "formal/*.lean", "formal/ResidualWidths/*.lean", "formal/*.toml",
     "formal/*.json", "formal/lean-toolchain", "lean-toolchain",
-    "formal/README.md", "experiments/*.py", "data/*.csv", "data/*.tex",
+    "formal/README.md", "experiments/*.py", "data/*.csv", "data/*.tex", "data/*.json",
     "tests/test_graph_orders.py", "tests/test_residuals.py",
+    "tests/test_graph_signatures.py", "tests/test_matching_certificates.py",
+    "tests/test_formal_audit.py",
     "research/claims.json", "scripts/check_formal.py", "scripts/setup_lean.py",
     "docs/w01-evaluator-audit.md", "docs/w02-kt-comparison.md",
     "docs/w03-restricted-model.md", "docs/literature.md",
+    "docs/w04-transfer-audit.md", "docs/wave-07-graph-signatures.md",
+    "docs/wave-08-matching-certificates.md",
 )
 
 
@@ -86,9 +90,9 @@ def render(packet: dict, register: dict) -> str:
         "No reviewer has been selected or contacted by preparing it.", "",
         "## Exact technical snapshot", "",
         f"Source revision: [`{sha}`]({repo}/tree/{sha}).",
-        f"[Matching working-draft PDF]({repo}/releases/download/manuscript-{sha}/main.pdf).",
         "Use the source revision, not a moving branch or latest Release, when recording findings.",
-        "The PDF link identifies the existing baseline release; this check does not fetch it.",
+        "Rebuild the PDF from this pinned source using the commands below. No existing",
+        "Release or PDF identity is inferred from the commit SHA by this packet.",
         "[The manifest](../research/review-packet.json) pins the technical files by SHA256.",
         "`make check` rejects changed, missing, or newly discovered technical source files",
         "and missing/duplicate claim coverage. It does not authenticate Git history,",
@@ -99,9 +103,10 @@ def render(packet: dict, register: dict) -> str:
         "## Evidence boundaries and decisions", "",
         "- Expository-proved means the repository supplies an expository argument, not",
         "  independent review, a novelty claim, or a proof-assistant certificate.",
-        "- Only **L02** has separate Lean evidence. Its kernel-checked statement and",
-        "  manuscript correspondence must be assessed separately; the remaining proofs",
-        "  and even the surrounding formalization prose are not thereby formalized.",
+        "- Only **L02** and **P03** have separate Lean evidence. Their kernel-checked",
+        "  statements and manuscript correspondence must be assessed separately.",
+        "  P04, L03/P05, L04, T01, and Q01 are not thereby formalized; neither is",
+        "  the surrounding formalization prose or the full SAT encoding infrastructure.",
         "- Q01 is open: SAT not in P/poly. No P versus NP separation is established.",
         "- The all-order grid bound concerns selector-input layered diagrams; those same",
         "  predicates have linear-size general circuits. No transfer to ordinary SAT",
@@ -118,7 +123,7 @@ def render(packet: dict, register: dict) -> str:
         for claim_id in unit["claim_ids"]:
             claim = claims[claim_id]
             dependencies = ", ".join(claim["depends_on"]) or "none"
-            formal = "; separate Lean evidence for L02" if claim.get("formal_evidence") else ""
+            formal = f"; separate Lean evidence for {claim_id}" if claim.get("formal_evidence") else ""
             lines.append(f"- **{claim_id}** — `{claim['status']}`{formal}; dependencies: {dependencies}.")
         lines.extend(["", "Read:"])
         lines.extend(f"- [`{name}`](../{name})" for name in unit["sources"])
@@ -144,13 +149,16 @@ def render(packet: dict, register: dict) -> str:
         "- For each correction, the correcting commit and whether it was re-reviewed.",
         "- A scoped conclusion: sound under stated hypotheses, corrections required, or unresolved.", "",
         "Leave these fields unfilled until an actual review occurs. Agent audits, green",
-        "CI, the Lean L02 proof, and a merged PR do not supply independent human review.",
+        "CI, the Lean L02/P03 proofs, and a merged PR do not supply independent human review.",
         "A blocking foundation finding suspends the affected dependent assertions until",
         "resolved; retain unresolved findings rather than checking acceptance boxes.", "",
         "## Maintaining this request", "",
         "After changing any pinned source, reassess affected claims and review questions",
         "before replacing hashes and the full source revision in the manifest. Pin an",
         "existing commit containing those technical inputs, not a proposed future SHA.",
+        "Before repinning, compare each source fingerprint with the bytes at that commit",
+        "using Git, and retain the verification record. This local checker still checks",
+        "working-tree consistency, not Git-history authenticity or the presence of a Release.",
         "Generate this document with `python3 scripts/check_review_packet.py --write`,",
         "then run `make check`. Do not carry a review conclusion over to changed inputs",
         "without checking its scope. Fingerprint regeneration is not re-review.", "",

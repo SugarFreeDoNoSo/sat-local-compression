@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Refreshed the review request after gated integration of PR20/21/22: 17 claims,
+  seven review units, 48 source fingerprints, and precise L02/P03 formal scope.
+  Historical preparation evidence is retained separately from the accepted baseline.
+
 - Prepared a source-pinned independent-review request covering every registered
   claim, its evidence boundaries, targeted questions, and findings-return record.
 - Added a reproducible packet check and regression tests for source drift,

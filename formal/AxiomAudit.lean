@@ -21,3 +21,14 @@ set_option pp.fullNames true
 #print axioms ResidualWidths.reachable_step
 #print axioms ResidualWidths.length_allWords
 #print axioms ResidualWidths.reachableWidth_le_prefixes
+
+-- P03 grouped-order disjointness; no other claims are formalized here.
+#print axioms ResidualWidths.disjointBits_zero_right
+#print axioms ResidualWidths.disjointBits_left_injective
+#print axioms ResidualWidths.groupedDisjointness_supported
+#print axioms ResidualWidths.groupedDisjointness_append
+#print axioms ResidualWidths.grouped_residual_injective
+#print axioms ResidualWidths.nodup_allWords
+#print axioms ResidualWidths.grouped_residual_count
+#print axioms ResidualWidths.grouped_width_lower_bound
+#print axioms ResidualWidths.grouped_width_characterization

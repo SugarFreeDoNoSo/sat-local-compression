@@ -15,13 +15,17 @@ Independent mathematical review is pending.
 - [Execution waves](docs/execution-waves.md), [detailed roadmap](docs/roadmap.md),
   and [live tracking issue](https://github.com/SugarFreeDoNoSo/sat-local-compression/issues/9).
 - [Literature notes](docs/literature.md).
-- [Lean formalization of L02](formal/README.md): minimum layered width equals
-  the number of distinct residuals, with one diagram attaining all cuts.
+- [Gap-MCSP applicability audit](docs/w04-transfer-audit.md): exact promises,
+  reduction direction, resource accounting, and the missing transfer.
+- [Lean formalizations of L02 and P03](formal/README.md): the residual-width
+  characterization and exact grouped-disjointness midpoint width `2^m`.
 - [Contribution rules](CONTRIBUTING.md) and [review checklist](docs/review-checklist.md).
 - [Independent-review request](docs/independent-review-packet.md): pinned source
-  snapshot, all 16 claims, scope-specific questions, and a findings-return guide.
+  snapshot, all 17 claims, scope-specific questions, and a findings-return guide.
   Preparation is not independent human review.
 - [Publication plan](PUBLICATION.md) and [citation metadata](CITATION.cff).
+- [Publication preparation](docs/w06-publication-preparation.md): contribution
+  scope, source/version checks and remaining review and author decisions.
 - [Initial validation record](docs/validation.md).
 - [Codex research handoff](docs/codex-handoff.md).
 
@@ -76,7 +80,7 @@ make verify LAKE="$PWD/build/lean/lean-4.35.0-linux/bin/lake" # all gates
 make experiments # regenerate the committed finite tables
 ```
 
-GitHub Actions runs research checks, verifies L02 in Lean, and builds a
+GitHub Actions runs research checks, verifies L02 and P03 in Lean, and builds a
 downloadable PDF artifact on pushes and pull requests. After all three jobs
 succeed on `main`, it also publishes
 `main.pdf` in a [GitHub Release](https://github.com/SugarFreeDoNoSo/sat-local-compression/releases)
@@ -93,7 +97,7 @@ A successful local build is not evidence that remote CI has run.
 | research/ | Claim register and initial issue backlog |
 | docs/ | Research, review, literature, and toolchain notes |
 | experiments/ | Exact finite residual-function experiments |
-| formal/ | Pinned Lean proof and manuscript correspondence for L02 |
+| formal/ | Pinned Lean proofs and manuscript correspondence for L02 and P03 |
 | tests/ | Independent finite consistency checks |
 | data/ | Reproducible CSV and LaTeX table |
 | scripts/ | Metadata and build-log validation |
@@ -110,7 +114,7 @@ lower bounds. See [CONTRIBUTING.md](CONTRIBUTING.md).
 ## Authorship and publication
 
 Project author: Matías Donoso Quiroga. Initial drafting and code were assisted
-by OpenAI ChatGPT/Codex. L02 has a Lean formalization; independent human review
+by OpenAI ChatGPT/Codex. L02 and P03 have Lean formalizations; independent human review
 is pending. No venue, affiliation, or DOI is claimed. Public hosting and
 scholarly submission are separate steps.
 

@@ -7,10 +7,10 @@ No reviewer has been selected or contacted by preparing it.
 
 ## Exact technical snapshot
 
-Source revision: [`19a33beaf62e6b8ec096955ea7a766001a16c723`](https://github.com/SugarFreeDoNoSo/sat-local-compression/tree/19a33beaf62e6b8ec096955ea7a766001a16c723).
-[Matching working-draft PDF](https://github.com/SugarFreeDoNoSo/sat-local-compression/releases/download/manuscript-19a33beaf62e6b8ec096955ea7a766001a16c723/main.pdf).
+Source revision: [`82a3af3844fdc11690f7ccf47d2d7fc259246ee0`](https://github.com/SugarFreeDoNoSo/sat-local-compression/tree/82a3af3844fdc11690f7ccf47d2d7fc259246ee0).
 Use the source revision, not a moving branch or latest Release, when recording findings.
-The PDF link identifies the existing baseline release; this check does not fetch it.
+Rebuild the PDF from this pinned source using the commands below. No existing
+Release or PDF identity is inferred from the commit SHA by this packet.
 [The manifest](../research/review-packet.json) pins the technical files by SHA256.
 `make check` rejects changed, missing, or newly discovered technical source files
 and missing/duplicate claim coverage. It does not authenticate Git history,
@@ -24,9 +24,10 @@ approval of the whole manuscript. Read the foundations before dependent claims.
 
 - Expository-proved means the repository supplies an expository argument, not
   independent review, a novelty claim, or a proof-assistant certificate.
-- Only **L02** has separate Lean evidence. Its kernel-checked statement and
-  manuscript correspondence must be assessed separately; the remaining proofs
-  and even the surrounding formalization prose are not thereby formalized.
+- Only **L02** and **P03** have separate Lean evidence. Their kernel-checked
+  statements and manuscript correspondence must be assessed separately.
+  P04, L03/P05, L04, T01, and Q01 are not thereby formalized; neither is
+  the surrounding formalization prose or the full SAT encoding infrastructure.
 - Q01 is open: SAT not in P/poly. No P versus NP separation is established.
 - The all-order grid bound concerns selector-input layered diagrams; those same
   predicates have linear-size general circuits. No transfer to ordinary SAT
@@ -71,10 +72,10 @@ Questions:
 1. Does the description count include lengths zero through s, with each time-valid description determining at most one total answer table, without turning a random-table argument into an explicit SAT bound?
 2. Does the recurrence induction use the correct variable-free boundary and decreasing variable count? Are differing formula lengths and shared circuit subcomputations kept out of the uniqueness conclusion?
 
-### 3. Layered residual widths and the limited Lean correspondence (`residual-width`)
+### 3. Layered residual widths and the limited L02/P03 Lean correspondence (`residual-width`)
 
 - **L02** — `expository-proved`; separate Lean evidence for L02; dependencies: none.
-- **P03** — `expository-proved`; dependencies: L02.
+- **P03** — `expository-proved`; separate Lean evidence for P03; dependencies: L02.
 - **P04** — `expository-proved`; dependencies: L02.
 
 Read:
@@ -84,12 +85,17 @@ Read:
 - [`formal/ResidualWidths/FiniteImage.lean`](../formal/ResidualWidths/FiniteImage.lean)
 - [`formal/AxiomAudit.lean`](../formal/AxiomAudit.lean)
 - [`scripts/check_formal.py`](../scripts/check_formal.py)
+- [`formal/ResidualWidths/Disjointness.lean`](../formal/ResidualWidths/Disjointness.lean)
+- [`tests/test_formal_audit.py`](../tests/test_formal_audit.py)
 
 Questions:
 1. Does L02 measure reachable states at every cut of a deterministic fixed-order, read-once, layered diagram, including initial and terminal layers?
 2. Does the canonical diagram attain all cuts simultaneously? Do SupportedAt and valid-suffix lemmas faithfully match finite Boolean tables, including constant functions and n = 0?
 3. Is the correspondence from a possibly infinite formal carrier to finite reachable layers adequate? Are the compiler pin, allowed logical axioms, and axiom-audit limitations disclosed?
 4. Are grouped width 2^m and interleaved width at most three claims confined to the same incidence encoding, rather than arbitrary SAT encodings or general circuits?
+5. Does the formal grouped predicate match the actual disjointness incidence semantics on valid 2m-bit words, rather than only an artificial selector predicate?
+6. Does P03 establish exactly 2^m distinct midpoint residuals for every natural m, including m = 0, with a lower bound for every correct diagram and a single canonical attaining diagram?
+7. Do the adversarial axiom-audit tests distinguish allowlisted logical axioms from custom or namespaced lookalikes, including opaque-hidden dependencies and sorryAx? Do L02/P03 results leave P04 and the remaining claims unformalized?
 
 ### 4. Induced matching and all-order grid arguments (`all-order-grid`)
 
@@ -99,13 +105,37 @@ Questions:
 Read:
 - [`paper/sections/05a-order-robust.tex`](../paper/sections/05a-order-robust.tex)
 - [`docs/w03-restricted-model.md`](../docs/w03-restricted-model.md)
+- [`experiments/matching_certificates.py`](../experiments/matching_certificates.py)
+- [`data/matching_certificates.json`](../data/matching_certificates.json)
+- [`tests/test_matching_certificates.py`](../tests/test_matching_certificates.py)
+- [`docs/wave-08-matching-certificates.md`](../docs/wave-08-matching-certificates.md)
 
 Questions:
 1. Does the induced matching live in the whole graph, excluding same-side as well as cross-side endpoint edges? Does each greedy selection delete at most 2 Delta^2 crossing edges?
 2. For every half-size read set in an even r-by-r grid, does the mixed-row argument yield at least r/2 crossing edges, including r = 2? Does this give the stated exponent r/64?
 3. Are selector length m = r^2, conventional formula length n, and full-table length N = 2^n kept separate? Is the linear general-circuit upper bound preserved, with no width-preserving encoding transfer claimed?
+4. Does the certificate checker validate distinct oriented crossing endpoints and inducedness in the whole graph, including both same-side endpoint edge sets?
+5. Are the certified 2^q distinct prefix residuals and distinguishing suffix witnesses confined to the supplied graph and cut? Does a true packing inequality remain distinct from an actual coverage certificate, including Delta = 0?
+6. Is the finite certificate cap of 256 vertices distinguished from the ten-selector exact signature cap, and from the unbounded manuscript theorem?
 
-### 5. Exact finite experiments, not asymptotic proofs (`finite-experiments`)
+### 5. Exact graph residual signatures in the fixed selector representation (`graph-signatures`)
+
+- **L04** — `expository-proved`; dependencies: L02.
+
+Read:
+- [`paper/sections/05b-graph-signatures.tex`](../paper/sections/05b-graph-signatures.tex)
+- [`experiments/graph_signatures.py`](../experiments/graph_signatures.py)
+- [`experiments/graph_order_widths.py`](../experiments/graph_order_widths.py)
+- [`tests/test_graph_signatures.py`](../tests/test_graph_signatures.py)
+- [`docs/wave-07-graph-signatures.md`](../docs/wave-07-graph-signatures.md)
+
+Questions:
+1. Do independent read prefixes produce exactly their unread-neighborhood unions, and does the empty unread assignment separate every live residual from the single dead residual?
+2. For two different live signatures, does a singleton suffix separate them, with looplessness retained explicitly? Does a dead residual exist exactly when the read-induced graph contains an edge?
+3. Are the empty cut, full cut, edgeless graph and zero-vertex graph handled? Does the implementation distinguish live mask zero from None, reject invalid graphs, and avoid duplicate-neighborhood overcounting?
+4. Does the separate truth-table oracle validate all reported finite cases and optimal orders without substituting for the proof? Are O(3^m) subset visits, integer bit costs and the ten-selector cap stated without a polynomial-time SAT or general-circuit claim?
+
+### 6. Exact finite experiments, not asymptotic proofs (`finite-experiments`)
 
 - **E01** — `finite-experiment`; dependencies: P03, P04.
 - **E02** — `finite-experiment`; dependencies: L02.
@@ -121,8 +151,9 @@ Read:
 Questions:
 1. Do the declared domains remain 1 <= m <= 7 for E01 and the five named graphs with at most nine selectors for E02, with boundary layers counted?
 2. Does subset dynamic programming optimize maximum residual width over all orders, and do independent SAT/permutation oracles check implementation behavior rather than certify asymptotic theorems?
+3. Does the minimax helper validate only table shape and positive counts, leaving correctness of externally supplied widths to the caller? Are exact signature counts kept distinct from induced-matching lower bounds?
 
-### 6. Conditional literature and missing transfer (`conditional-literature`)
+### 7. Conditional literature and missing transfer (`conditional-literature`)
 
 - **R01** — `conditional-literature`; dependencies: none.
 - **R02** — `conditional-literature`; dependencies: none.
@@ -133,6 +164,7 @@ Read:
 - [`paper/references.bib`](../paper/references.bib)
 - [`docs/literature.md`](../docs/literature.md)
 - [`docs/w02-kt-comparison.md`](../docs/w02-kt-comparison.md)
+- [`docs/w04-transfer-audit.md`](../docs/w04-transfer-audit.md)
 
 Questions:
 1. Does R01 retain the checked-SAT-solver restriction of Chapman-Williams Theorem 1.1, rather than describe arbitrary separating properties?
@@ -140,13 +172,14 @@ Questions:
 3. What concrete reduction, source/target promises and resource transformations would connect a proved source result to R02? None is currently supplied; do not treat the grid bound as that missing step.
 4. Does R03 retain the exact NP-hardness hypothesis and chain-rule convention from the cited revision, without identifying its full-output measure with local access?
 5. Which primary sources and versions were actually inspected in this review? Record unverified bibliography or novelty questions explicitly, not as endorsements.
+6. Does the W04 applicability audit preserve the YES <= s1 and strict NO > s2 promises, all parameter quantifiers and the eventual-YES obstruction, without treating a selector-width bound as a Gap-MCSP reduction?
 
 ## Reproduce and return findings
 
 From a clean checkout of the pinned source revision:
 
 ```sh
-git checkout --detach 19a33beaf62e6b8ec096955ea7a766001a16c723
+git checkout --detach 82a3af3844fdc11690f7ccf47d2d7fc259246ee0
 python3 scripts/setup_lean.py
 make verify LAKE="$PWD/build/lean/lean-4.35.0-linux/bin/lake"
 ```
@@ -167,7 +200,7 @@ Use the [review checklist](review-checklist.md). A return record should include:
 - A scoped conclusion: sound under stated hypotheses, corrections required, or unresolved.
 
 Leave these fields unfilled until an actual review occurs. Agent audits, green
-CI, the Lean L02 proof, and a merged PR do not supply independent human review.
+CI, the Lean L02/P03 proofs, and a merged PR do not supply independent human review.
 A blocking foundation finding suspends the affected dependent assertions until
 resolved; retain unresolved findings rather than checking acceptance boxes.
 
@@ -176,6 +209,9 @@ resolved; retain unresolved findings rather than checking acceptance boxes.
 After changing any pinned source, reassess affected claims and review questions
 before replacing hashes and the full source revision in the manifest. Pin an
 existing commit containing those technical inputs, not a proposed future SHA.
+Before repinning, compare each source fingerprint with the bytes at that commit
+using Git, and retain the verification record. This local checker still checks
+working-tree consistency, not Git-history authenticity or the presence of a Release.
 Generate this document with `python3 scripts/check_review_packet.py --write`,
 then run `make check`. Do not carry a review conclusion over to changed inputs
 without checking its scope. Fingerprint regeneration is not re-review.

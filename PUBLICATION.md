@@ -7,6 +7,10 @@ The [independent-review request](docs/independent-review-packet.md) supplies a
 source-pinned reading packet and findings-return guide. It selects no reviewer,
 venue, license, or contribution, and does not satisfy the review gates below.
 
+The [W06 preparation dossier](docs/w06-publication-preparation.md) records the
+contribution inventory, checked bibliographic metadata, technical evidence and
+remaining author decisions. Its preparation does not complete the checklist.
+
 Before an external preprint or journal submission:
 
 - [ ] Identify the contribution and complete a novelty/literature review.
