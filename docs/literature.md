@@ -62,3 +62,22 @@ the full table length `N = 2^n`. A common epsilon must work for every sufficient
 small fixed beta. See the [applicability audit](w04-transfer-audit.md) for the
 promise, resource contract, and explicit missing reduction. No transfer is
 established.
+
+## W06 metadata check — October 23, 2026
+
+The [publication preparation dossier](w06-publication-preparation.md) records
+primary/editorial metadata checks for all seven bibliography entries. These
+checks do not complete a novelty assessment or human mathematical review.
+
+The original six-entry table above predates the graph extension. Its additional
+source is Bova and Slivovsky, [On Compiling Structured CNFs to OBDDs](https://link.springer.com/article/10.1007/s00224-016-9715-z),
+Theory of Computing Systems 61(2), 637–655 (2017), DOI
+`10.1007/s00224-016-9715-z`. The editorial page distinguishes online publication
+on October 26, 2016 from the 2017 print issue. Section 4/Theorem 19 supplies
+stronger expander-based background; the grid example claims no novelty.
+
+The dossier also distinguishes author-PDF dates from conference/journal dates,
+the print and digital book dates, and ECCC's original report from Revision 1.
+The source's actual article/revision record takes precedence over stale or
+incomplete machine-readable metadata. No unverified theorem-page locator or
+publication date is supplied for the undated Allender–van Melkebeek clarification.
