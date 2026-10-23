@@ -37,6 +37,10 @@ jobs:
           persist-credentials: false
       - name: Install the TeX toolchain
         run: |
+          # Avoid the Azure mirror's observed slow package downloads. Keep APT
+          # suites, components, keyrings, and package authentication unchanged.
+          grep -Fq 'mirror+file:/etc/apt/apt-mirrors.txt' /etc/apt/sources.list.d/ubuntu.sources
+          printf '%s\n' 'https://archive.ubuntu.com/ubuntu/' | sudo tee /etc/apt/apt-mirrors.txt >/dev/null
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends latexmk texlive-latex-extra texlive-fonts-recommended lmodern
       - name: Build and validate the manuscript
