@@ -124,6 +124,12 @@
         "L02"
       ],
       "sources": []
+    },
+    {
+      "id": "L04", "label": "lem:graph-signatures", "status": "expository-proved",
+      "statement": "For a finite simple graph and read set S, the exact residual width is the number of distinct unread-neighborhood unions of independent subsets of S, plus one if the induced read graph has an edge.",
+      "scope": "Fixed graph-selector incidence SAT representation and deterministic layered fixed-order diagrams. Includes empty and full cuts and the graph on no vertices. Looplessness is essential to singleton-suffix separation. No novelty, formal verification, general-circuit lower bound, or conventional-SAT-encoding transfer is claimed.",
+      "depends_on": ["L02"], "sources": []
     }
   ]
 }
